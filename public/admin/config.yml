@@ -270,10 +270,9 @@ collections:
         label: "All Blog Posts"
         name: "posts"
         fields:
-          - label: "Posts"
-            name: "items"
-            widget: "list"
+          - name: "items"
             label: "All Posts"
+            widget: "list"
             summary: "{{fields.title}} ({{fields.date}})"
             fields:
               - { label: "Slug (URL key, no spaces)", name: "slug", widget: "string" }
