@@ -1,0 +1,38 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+<Base title="Page Not Found">
+  <Nav />
+  <div class="not-found">
+    <div class="container" style="text-align:center;">
+      <div class="nf-number">404</div>
+      <h1 style="color:var(--night);">Page Not Found</h1>
+      <p style="max-width:420px;margin:1rem auto 0;">The page you're looking for doesn't exist. It may have moved or been deleted.</p>
+      <div style="display:flex;gap:1rem;justify-content:center;margin-top:2.5rem;flex-wrap:wrap;">
+        <a href="/" class="btn btn-primary">Go Home</a>
+        <a href="/contact" class="btn btn-outline">Contact Us</a>
+      </div>
+    </div>
+  </div>
+  <Footer />
+</Base>
+
+<style>
+.not-found {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  padding-top: var(--nav-h);
+}
+.nf-number {
+  font-family: var(--font-display);
+  font-size: 9rem;
+  font-weight: 900;
+  color: var(--clay);
+  opacity: .15;
+  line-height: 1;
+  margin-bottom: -1.5rem;
+}
+</style>

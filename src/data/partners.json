@@ -1,0 +1,44 @@
+{
+  "hero": {
+    "label": "Together We Achieve More",
+    "title": "Our Partners",
+    "subtitle": "RAPP's work is made possible by a network of committed local and international partners who share our vision for a peaceful, prosperous Rwanda.",
+    "image": "https://images.unsplash.com/photo-1560439513-74b037a25d84?w=1400&q=80"
+  },
+  "tiers": [
+    {
+      "level": "Strategic Partners",
+      "color": "var(--gold)",
+      "partners": [
+        { "name": "United Nations Rwanda", "type": "International", "desc": "Supporting peacebuilding and SDG implementation." },
+        { "name": "European Union Delegation", "type": "Government", "desc": "Funding democratic governance and rural development." },
+        { "name": "Rwanda Development Board", "type": "Government", "desc": "Aligning programmes with national development priorities." },
+        { "name": "USAID Rwanda", "type": "International", "desc": "Co-funding health and education programmes." }
+      ]
+    },
+    {
+      "level": "Implementing Partners",
+      "color": "var(--sage)",
+      "partners": [
+        { "name": "Imbuto Foundation", "type": "NGO", "desc": "Joint youth and women empowerment initiatives." },
+        { "name": "Africa Governance Institute", "type": "Think Tank", "desc": "Policy research and governance training." },
+        { "name": "Rwanda Red Cross", "type": "NGO", "desc": "Community health and emergency response." },
+        { "name": "World Vision Rwanda", "type": "NGO", "desc": "Child welfare and community resilience." }
+      ]
+    },
+    {
+      "level": "Academic & Research Partners",
+      "color": "var(--clay)",
+      "partners": [
+        { "name": "University of Rwanda", "type": "Academia", "desc": "Research on conflict resolution and sustainable development." },
+        { "name": "Carnegie Mellon University Africa", "type": "Academia", "desc": "Technology and innovation for social impact." }
+      ]
+    }
+  ],
+  "howToPartner": [
+    { "icon": "💼", "title": "Corporate Partnership", "desc": "Align your CSR goals with impactful community programmes in Rwanda." },
+    { "icon": "🏛️", "title": "Government Collaboration", "desc": "Co-design policies and programmes that advance peace and progress." },
+    { "icon": "🎓", "title": "Academic Partnership", "desc": "Conduct joint research and share knowledge for evidence-based programming." },
+    { "icon": "🌐", "title": "NGO Alliance", "desc": "Pool resources and expertise to maximize collective impact." }
+  ]
+}

@@ -1,0 +1,179 @@
+---
+import siteData from '../data/site.json';
+const navLinks = [
+  { href: '/',           label: 'Home' },
+  { href: '/projects',   label: 'Projects' },
+  { href: '/partners',   label: 'Partners' },
+  { href: '/about',      label: 'About Us' },
+  { href: '/contact',    label: 'Contact Us' },
+];
+const currentPath = Astro.url.pathname;
+---
+
+<header class="site-nav">
+  <div class="container nav-inner">
+    <a href="/" class="logo">
+      <span class="logo-icon">
+        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="36" height="36" rx="8" fill="#0D2B45"/>
+          <path d="M10 8h8c3.5 0 6 2.2 6 5.5 0 2.3-1.2 4-3 4.8L25 28h-4.5l-3.5-9H13.5V28H10V8zm3.5 3v5.5H17c1.8 0 3-.9 3-2.8 0-1.8-1.2-2.7-3-2.7h-3.5z" fill="#C9973A"/>
+          <rect x="10" y="30" width="16" height="2" rx="1" fill="#1A6B8A"/>
+        </svg>
+      </span>
+      <span class="logo-text-wrap">
+        <span class="logo-name">{siteData.logoName}</span>
+        <span class="logo-sub">{siteData.logoSub}</span>
+      </span>
+    </a>
+
+    <nav class="nav-links" id="nav-links">
+      {navLinks.map(l => (
+        <a
+          href={l.href}
+          class:list={['nav-link', { active: currentPath === l.href || (l.href !== '/' && currentPath.startsWith(l.href)) }]}
+        >{l.label}</a>
+      ))}
+      <a href="/donate" class="btn btn-primary nav-donate">Donate Now</a>
+    </nav>
+
+    <button class="burger" id="burger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<style>
+.site-nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  height: var(--nav-h);
+  background: rgba(248,251,253,.96);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(59,42,26,.08);
+  transition: box-shadow .3s;
+}
+.site-nav.scrolled {
+  box-shadow: 0 4px 24px rgba(59,42,26,.1);
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: .65rem;
+  text-decoration: none;
+}
+.logo-icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  filter: drop-shadow(0 2px 6px rgba(26,107,138,.25));
+}
+.logo-text-wrap {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+.logo-name {
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  font-weight: 900;
+  color: var(--night);
+  letter-spacing: .04em;
+}
+.logo-sub {
+  font-family: var(--font-body);
+  font-size: .58rem;
+  font-weight: 600;
+  color: var(--muted);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: .25rem;
+}
+.nav-link {
+  font-weight: 500;
+  font-size: .92rem;
+  padding: .45rem .8rem;
+  border-radius: var(--r);
+  color: var(--earth);
+  transition: color .2s, background .2s;
+  position: relative;
+}
+.nav-link:hover { color: var(--clay); background: rgba(200,64,47,.06); }
+.nav-link.active { color: var(--clay); font-weight: 600; }
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: 2px; left: 50%; transform: translateX(-50%);
+  width: 18px; height: 2px;
+  background: var(--clay);
+  border-radius: 2px;
+}
+.nav-donate { margin-left: .5rem; padding: .55rem 1.25rem; font-size: .88rem; }
+
+.burger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: .5rem;
+}
+.burger span {
+  display: block;
+  width: 24px; height: 2px;
+  background: var(--earth);
+  border-radius: 2px;
+  transition: all .25s;
+}
+
+@media (max-width: 900px) {
+  .nav-links {
+    position: fixed;
+    top: var(--nav-h); left: 0; right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: .25rem;
+    background: var(--cream);
+    border-bottom: 1px solid rgba(59,42,26,.1);
+    padding: 1rem 1.5rem 1.5rem;
+    transform: translateY(-110%);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform .3s var(--ease), opacity .3s;
+  }
+  .nav-links.open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: all;
+  }
+  .nav-donate { margin: .5rem 0 0; text-align: center; justify-content: center; }
+  .burger { display: flex; }
+}
+</style>
+
+<script>
+const burger = document.getElementById('burger');
+const links  = document.getElementById('nav-links');
+const nav    = document.querySelector('.site-nav');
+
+burger?.addEventListener('click', () => {
+  links?.classList.toggle('open');
+  burger.classList.toggle('open');
+});
+
+window.addEventListener('scroll', () => {
+  nav?.classList.toggle('scrolled', window.scrollY > 20);
+});
+</script>

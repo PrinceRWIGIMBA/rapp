@@ -1,0 +1,401 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import homeData from '../data/home.json';
+import allPostsData from '../data/posts.json';
+const allPostsRaw = allPostsData.items;
+
+const { hero, stats, features, missionSection, latestNews } = homeData;
+const news = (latestNews.slugs ?? [])
+  .map((slug: string) => allPostsRaw.find((p: any) => p.slug === slug))
+  .filter(Boolean);
+---
+
+<Base title="Home">
+  <Nav />
+
+  <!-- ── Hero ── -->
+  <section class="hero" style={`background-image: url('${hero.image}')`}>
+    <div class="hero-bg"></div>
+    <div class="container hero-content">
+      <p class="section-label fade-up">{hero.label}</p>
+      <h1 class="fade-up-2" set:html={hero.title}></h1>
+      <p class="hero-sub fade-up-3">{hero.subtitle}</p>
+      <div class="hero-ctas fade-up-4">
+        <a href={hero.cta1Link} class="btn btn-primary">{hero.cta1Text}</a>
+        <a href={hero.cta2Link} class="btn btn-outline" style="color:#fff;border-color:rgba(255,255,255,.5);">{hero.cta2Text}</a>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ── Stats ── -->
+  <section class="stats-bar">
+    <div class="container stats-grid">
+      {stats.map(s => (
+        <div class="stat">
+          <strong>{s.number}</strong>
+          <span>{s.label}</span>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- ── Mission ── -->
+  <section class="section">
+    <div class="container mission-layout">
+      <div class="mission-img-wrap">
+        <img
+          src={missionSection.image}
+          alt="Community gathering in Rwanda"
+          class="mission-img"
+        />
+        <div class="mission-badge">
+          <p class="badge-number">2014</p>
+          <p class="badge-label">Founded</p>
+        </div>
+      </div>
+      <div class="mission-text">
+        <span class="section-label">Our Mission</span>
+        <h2>Uniting Rwandans for a Peaceful & Prosperous Tomorrow</h2>
+        <div class="divider"></div>
+        <p>
+          RAPP — Rwandans Allied for Peace and Progress — is a non-governmental organization rooted in the belief that lasting peace and shared prosperity are achievable through collaboration, dialogue, and community-driven action.
+        </p>
+        <p style="margin-top:1rem;">
+          Since 2014, we have worked alongside communities, governments, and international partners to build bridges across divides and create tangible improvements in the lives of Rwandans.
+        </p>
+        <div style="margin-top:2rem;display:flex;gap:1rem;flex-wrap:wrap;">
+          <a href="/about" class="btn btn-primary">Learn About Us</a>
+          <a href="/projects" class="btn btn-outline">Our Projects</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Focus Areas ── -->
+  <section class="section bg-sand">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">What We Do</span>
+        <h2>Our Focus Areas</h2>
+        <div class="divider"></div>
+        <p style="max-width:520px;">
+          We take a holistic approach to peacebuilding and development, addressing interconnected challenges through targeted programs.
+        </p>
+      </div>
+      <div class="features-grid">
+        {features.map(f => (
+          <div class="feature-card">
+            <div class="feature-icon">{f.icon}</div>
+            <h3>{f.title}</h3>
+            <p>{f.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Latest News ── -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header" style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1rem;">
+        <div>
+          <span class="section-label">Stay Informed</span>
+          <h2>Latest News & Updates</h2>
+        </div>
+        <a href="/blog" class="btn btn-outline">View All</a>
+      </div>
+      <div class="news-grid">
+        {news.map(n => (
+          <article class="card news-card">
+            <div class="news-img-wrap">
+              <img src={n.img} alt={n.title} class="news-img" />
+              <span class="news-tag">{n.tag}</span>
+            </div>
+            <div class="news-body">
+              <time class="news-date">{n.date}</time>
+              <h3 class="news-title">{n.title}</h3>
+              <p class="news-excerpt">{n.excerpt}</p>
+              <a href={`/blog/${n.slug}`} class="news-link">Read More →</a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA ── -->
+  <section class="cta-section">
+    <div class="cta-bg"></div>
+    <div class="container cta-inner">
+      <span class="section-label" style="color:var(--gold)">Take Action</span>
+      <h2 style="color:#fff;max-width:600px;margin:0 auto;">Ready to Make a Difference in Rwanda?</h2>
+      <p style="color:rgba(245,239,230,.8);max-width:500px;margin:1rem auto 0;">
+        Whether you donate, volunteer, or partner with us — every contribution builds a more peaceful Rwanda.
+      </p>
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:2.5rem;">
+        <a href="/donate" class="btn btn-primary">Donate Now</a>
+        <a href="/contact" class="btn" style="background:transparent;color:#fff;border:2px solid rgba(255,255,255,.4);">Get in Touch</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Base>
+
+<style>
+/* Hero */
+.hero {
+  min-height: 100vh;
+  background-color: var(--earth);
+  background-image: url('https://images.unsplash.com/photo-1531482615713-2afd69097998?w=1600&q=80');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding-top: var(--nav-h);
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(8,28,46,.88) 0%,
+    rgba(13,43,69,.78) 40%,
+    rgba(26,107,138,.60) 100%
+  );
+}
+.hero-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 80% 20%, rgba(201,151,58,.15) 0%, transparent 50%);
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding-block: 6rem;
+}
+.hero-content h1 {
+  color: #ffffff;
+  margin-top: .5rem;
+  max-width: 700px;
+  text-shadow: 0 2px 16px rgba(0,0,0,.3);
+}
+.hero-content h1 em {
+  font-style: italic;
+  color: var(--gold);
+}
+.hero-sub {
+  color: rgba(245,239,230,.75);
+  max-width: 560px;
+  font-size: 1.1rem;
+  margin-top: 1.5rem;
+}
+.hero-ctas {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2.5rem;
+  flex-wrap: wrap;
+}
+.hero-scroll {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .5rem;
+  color: rgba(245,239,230,.4);
+  font-size: .75rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.scroll-line {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, rgba(245,239,230,.4), transparent);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+@keyframes scrollPulse {
+  0%, 100% { opacity: .4; transform: scaleY(1); }
+  50%       { opacity: 1;  transform: scaleY(1.3); }
+}
+
+/* Stats */
+.stats-bar {
+  background: var(--clay);
+  padding: 2.5rem 0;
+}
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  text-align: center;
+  gap: 1rem;
+}
+.stat strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #fff;
+  line-height: 1;
+}
+.stat span {
+  font-size: .85rem;
+  color: rgba(255,255,255,.75);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  margin-top: .25rem;
+  display: block;
+}
+
+/* Section */
+.section { padding: 6rem 0; }
+.bg-sand { background: var(--sand); }
+.section-header { margin-bottom: 3.5rem; }
+
+/* Mission */
+.mission-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+.mission-img-wrap { position: relative; }
+.mission-img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  border-radius: calc(var(--r) * 2);
+  box-shadow: 0 24px 64px rgba(59,42,26,.2);
+}
+.mission-badge {
+  position: absolute;
+  bottom: -1.5rem; right: -1.5rem;
+  background: var(--clay);
+  color: #fff;
+  padding: 1.5rem 2rem;
+  border-radius: var(--r);
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(200,64,47,.3);
+}
+.badge-number {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 900;
+  opacity: 1;
+  color: #fff;
+}
+.badge-label {
+  font-size: .8rem;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: rgba(255,255,255,.8);
+  opacity: 1;
+}
+.mission-text h2 { margin-top: .5rem; }
+
+/* Features */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+.feature-card {
+  background: #fff;
+  padding: 2rem 1.5rem;
+  border-radius: calc(var(--r)*2);
+  box-shadow: 0 2px 12px rgba(59,42,26,.06);
+  transition: transform .3s var(--ease), box-shadow .3s var(--ease);
+}
+.feature-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 48px rgba(59,42,26,.12);
+}
+.feature-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+.feature-card h3 { margin-bottom: .5rem; font-size: 1.1rem; }
+.feature-card p { font-size: .9rem; }
+
+/* News */
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+}
+.news-img-wrap { position: relative; overflow: hidden; height: 220px; }
+.news-img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform .5s var(--ease);
+}
+.news-card:hover .news-img { transform: scale(1.06); }
+.news-tag {
+  position: absolute;
+  top: 1rem; left: 1rem;
+  background: var(--clay);
+  color: #fff;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: .3rem .75rem;
+  border-radius: 999px;
+}
+.news-body { padding: 1.5rem; }
+.news-date { font-size: .8rem; color: var(--muted); }
+.news-title { font-size: 1.1rem; margin: .5rem 0 .75rem; line-height: 1.35; }
+.news-excerpt { font-size: .88rem; margin-bottom: 1.25rem; }
+.news-link {
+  font-weight: 600;
+  font-size: .88rem;
+  color: var(--clay);
+  transition: gap .2s;
+}
+.news-link:hover { text-decoration: underline; }
+
+/* CTA */
+.cta-section {
+  padding: 7rem 0;
+  background: var(--earth);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.cta-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 80% 50%, rgba(212,168,67,.2) 0%, transparent 55%),
+    radial-gradient(ellipse at 20% 50%, rgba(200,64,47,.2) 0%, transparent 55%);
+}
+.cta-inner { position: relative; z-index: 2; }
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .features-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 900px) {
+  .mission-layout { grid-template-columns: 1fr; gap: 3rem; }
+  .news-grid       { grid-template-columns: repeat(2, 1fr); }
+  .stats-grid      { grid-template-columns: repeat(2, 1fr); }
+  .mission-badge   { bottom: 1rem; right: 1rem; }
+}
+@media (max-width: 600px) {
+  .features-grid { grid-template-columns: 1fr; }
+  .news-grid     { grid-template-columns: 1fr; }
+  .stats-grid    { grid-template-columns: repeat(2, 1fr); }
+}
+</style>

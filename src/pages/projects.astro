@@ -1,0 +1,194 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import allProjectsData from '../data/projects.json';
+const allProjects = allProjectsData.items;
+
+const tagColors: Record<string, string> = {
+  Education: '#3B82F6',
+  Peacebuilding: '#10B981',
+  Agriculture: '#F59E0B',
+  Health: '#EF4444',
+  Environment: '#6B8F71',
+  Women: '#8B5CF6',
+};
+
+const projects = allProjects;
+---
+
+<Base title="Projects" description="Explore RAPP's impactful projects across Rwanda.">
+  <Nav />
+
+  <div class="page-hero" style="background-image: url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=1400&q=80')">
+    <div class="container">
+      <span class="section-label fade-up">Our Work</span>
+      <h1 class="fade-up-2">Projects & Programmes</h1>
+      <p class="fade-up-3">From peacebuilding to sustainable agriculture — discover how RAPP is transforming lives across Rwanda.</p>
+    </div>
+  </div>
+
+  <!-- Filter bar -->
+  <section class="filter-bar">
+    <div class="container">
+      <div class="filter-wrap">
+        <button class="filter-btn active" data-filter="all">All Projects</button>
+        {['Education','Peacebuilding','Agriculture','Health','Environment','Women'].map(t => (
+          <button class="filter-btn" data-filter={t}>{t}</button>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects grid -->
+  <section class="section">
+    <div class="container">
+      <div class="projects-grid" id="projects-grid">
+        {projects.map(p => (
+          <article class="card proj-card" data-tag={p.tag}>
+            <div class="proj-img-wrap">
+              <img src={p.img} alt={p.title} class="proj-img" />
+              <span class="proj-tag" style={`background:${tagColors[p.tag]}`}>{p.tag}</span>
+              <span class={`proj-status ${p.status === 'Active' ? 'status-active' : 'status-done'}`}>{p.status}</span>
+            </div>
+            <div class="proj-body">
+              <div class="proj-meta">
+                <span>📍 {p.location}</span>
+                <span>📅 {p.year}</span>
+              </div>
+              <h3 class="proj-title">{p.title}</h3>
+              <p class="proj-desc">{p.desc}</p>
+              <div class="proj-impact">
+                <span class="impact-icon">🎯</span>
+                <strong>{p.impact}</strong>
+              </div>
+              <a href={`/projects/${p.id}`} class="btn btn-outline" style="margin-top:1rem;width:100%;justify-content:center;">Learn More</a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section bg-sand">
+    <div class="container" style="text-align:center;max-width:620px;margin:0 auto;">
+      <span class="section-label">Get Involved</span>
+      <h2>Want to Support a Project?</h2>
+      <div class="divider" style="margin:1rem auto;"></div>
+      <p>Your donation directly funds these life-changing programs. Every contribution, large or small, creates real impact.</p>
+      <div style="display:flex;gap:1rem;justify-content:center;margin-top:2rem;flex-wrap:wrap;">
+        <a href="/donate" class="btn btn-primary">Donate Now</a>
+        <a href="/contact" class="btn btn-outline">Partner With Us</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Base>
+
+<style>
+.filter-bar {
+  background: var(--sand);
+  padding: 1.25rem 0;
+  border-bottom: 1px solid rgba(59,42,26,.08);
+}
+.filter-wrap {
+  display: flex;
+  gap: .5rem;
+  flex-wrap: wrap;
+}
+.filter-btn {
+  padding: .45rem 1.1rem;
+  border-radius: 999px;
+  border: 1.5px solid rgba(59,42,26,.2);
+  background: transparent;
+  font-family: var(--font-body);
+  font-size: .85rem;
+  font-weight: 500;
+  color: var(--earth);
+  cursor: pointer;
+  transition: all .2s;
+}
+.filter-btn:hover, .filter-btn.active {
+  background: var(--clay);
+  color: #fff;
+  border-color: var(--clay);
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+}
+.proj-img-wrap { position: relative; height: 230px; overflow: hidden; }
+.proj-img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s var(--ease); }
+.proj-card:hover .proj-img { transform: scale(1.06); }
+.proj-tag {
+  position: absolute;
+  top: 1rem; left: 1rem;
+  color: #fff;
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: .3rem .75rem;
+  border-radius: 999px;
+}
+.proj-status {
+  position: absolute;
+  top: 1rem; right: 1rem;
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .05em;
+  padding: .3rem .75rem;
+  border-radius: 999px;
+}
+.status-active { background: rgba(16,185,129,.9); color: #fff; }
+.status-done   { background: rgba(107,114,128,.85); color: #fff; }
+
+.proj-body { padding: 1.5rem; }
+.proj-meta {
+  display: flex;
+  gap: 1rem;
+  font-size: .78rem;
+  color: var(--muted);
+  margin-bottom: .75rem;
+  flex-wrap: wrap;
+}
+.proj-title { font-size: 1.15rem; margin-bottom: .6rem; }
+.proj-desc  { font-size: .88rem; margin-bottom: 1rem; }
+.proj-impact {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  font-size: .88rem;
+  background: var(--sand);
+  padding: .6rem 1rem;
+  border-radius: var(--r);
+}
+.proj-impact strong { color: var(--clay); }
+
+@media (max-width: 1024px) { .projects-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px)  { .projects-grid { grid-template-columns: 1fr; } }
+</style>
+
+<script>
+const btns = document.querySelectorAll<HTMLButtonElement>('.filter-btn');
+const cards = document.querySelectorAll<HTMLElement>('.proj-card');
+
+btns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    btns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const filter = btn.dataset.filter;
+    cards.forEach(card => {
+      if (filter === 'all' || card.dataset.tag === filter) {
+        card.style.display = '';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  });
+});
+</script>

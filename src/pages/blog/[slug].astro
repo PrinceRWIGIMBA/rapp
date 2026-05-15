@@ -1,0 +1,305 @@
+---
+import Base from '../../layouts/Base.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import allPostsData from '../../data/posts.json';
+
+const tagColors: Record<string, string> = {
+  Projects: '#3B82F6',
+  Events: '#10B981',
+  Partnerships: '#2E8B7A',
+  Environment: '#6B8F71',
+  Women: '#8B5CF6',
+  Health: '#EF4444',
+};
+
+// getStaticPaths must self-contain its data
+export function getStaticPaths() {
+  const posts: any[] = allPostsData.items;
+  return posts.map((post: any) => ({
+    params: { slug: post.slug },
+    props: {
+      post,
+      related: (post.relatedSlugs || [])
+        .map((s: string) => posts.find((p: any) => p.slug === s))
+        .filter(Boolean),
+    },
+  }));
+}
+
+const { post, related } = Astro.props;
+---
+
+<Base title={post.title} description={post.excerpt}>
+  <Nav />
+
+  <!-- Hero -->
+  <div class="post-hero" style={`background-image: url('${post.img}')`}>
+    <div class="container">
+      <div class="post-hero-meta">
+        <span class="post-tag-pill" style={`background:${tagColors[post.tag] ?? 'var(--clay)'}`}>{post.tag}</span>
+        <span class="post-date">{post.date}</span>
+        <span class="dot">·</span>
+        <span class="post-date">{post.readTime}</span>
+      </div>
+      <h1 class="fade-up">{post.title}</h1>
+      <p class="post-hero-excerpt fade-up-2">{post.excerpt}</p>
+    </div>
+  </div>
+
+  <!-- Article body -->
+  <div class="article-layout">
+    <!-- Author card (sidebar on desktop, top on mobile) -->
+    <aside class="author-card">
+      <img src={post.authorPhoto} alt={post.author} class="author-img" />
+      <div class="author-info">
+        <strong class="author-name">{post.author}</strong>
+        <span class="author-role">{post.authorRole}</span>
+      </div>
+      <div class="author-divider"></div>
+      <p class="author-label">Share this story</p>
+      <div class="share-links">
+        <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(post.title)}&url=${encodeURIComponent('https://rapp.rw/blog/'+post.slug)}`} target="_blank" rel="noopener" class="share-btn share-tw">𝕏 Twitter</a>
+        <a href={`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent('https://rapp.rw/blog/'+post.slug)}&title=${encodeURIComponent(post.title)}`} target="_blank" rel="noopener" class="share-btn share-li">in LinkedIn</a>
+      </div>
+      <div class="author-divider"></div>
+      <a href="/blog" class="back-link">← Back to Blog</a>
+    </aside>
+
+    <!-- Main content -->
+    <article class="article-body" set:html={post.body} />
+  </div>
+
+  <!-- Related posts -->
+  {related.length > 0 && (
+    <section class="related-section">
+      <div class="container">
+        <span class="section-label">Keep Reading</span>
+        <h2>Related Stories</h2>
+        <div class="divider"></div>
+        <div class="related-grid">
+          {related.map(r => (
+            <a href={`/blog/${r.slug}`} class="related-card card">
+              <div class="related-img-wrap">
+                <img src={r.img} alt={r.title} class="related-img" />
+                <span class="post-tag-pill small" style={`background:${tagColors[r.tag] ?? 'var(--clay)'}`}>{r.tag}</span>
+              </div>
+              <div class="related-body">
+                <time class="post-date">{r.date}</time>
+                <h3>{r.title}</h3>
+                <p>{r.excerpt}</p>
+                <span class="read-more-link">Read Story →</span>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- CTA -->
+  <section class="section bg-sand">
+    <div class="container" style="max-width:580px;margin:0 auto;text-align:center;">
+      <span class="section-label">Take Action</span>
+      <h2>Support RAPP's Work</h2>
+      <div class="divider" style="margin:1rem auto;"></div>
+      <p>Every story you read here is made possible by donors, volunteers, and partners who believe in Rwanda's potential.</p>
+      <div style="display:flex;gap:1rem;justify-content:center;margin-top:2rem;flex-wrap:wrap;">
+        <a href="/donate" class="btn btn-primary">Donate Now</a>
+        <a href="/contact" class="btn btn-outline">Get Involved</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Base>
+
+<style>
+/* ── Hero ── */
+.post-hero {
+  padding: calc(var(--nav-h) + 5rem) 0 5rem;
+  background-color: var(--earth);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  position: relative;
+  overflow: hidden;
+  min-height: 420px;
+  display: flex;
+  align-items: flex-end;
+}
+.post-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(8,28,46,.92) 0%,
+    rgba(13,43,69,.70) 50%,
+    rgba(13,43,69,.45) 100%
+  );
+}
+.post-hero .container { position: relative; z-index: 2; padding-bottom: 1rem; }
+.post-hero h1 {
+  color: #fff;
+  max-width: 860px;
+  margin: .75rem 0;
+  text-shadow: 0 2px 20px rgba(0,0,0,.4);
+  font-size: clamp(1.8rem, 4vw, 3rem);
+}
+.post-hero-excerpt {
+  color: rgba(238,244,247,.85);
+  max-width: 680px;
+  font-size: 1.05rem;
+  margin: 0;
+}
+.post-hero-meta {
+  display: flex;
+  align-items: center;
+  gap: .65rem;
+  flex-wrap: wrap;
+  margin-bottom: .25rem;
+}
+.post-tag-pill {
+  color: #fff;
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: .28rem .8rem;
+  border-radius: 999px;
+}
+.post-tag-pill.small { font-size: .65rem; padding: .22rem .65rem; }
+.post-date { font-size: .82rem; color: rgba(238,244,247,.75); }
+.dot { color: rgba(238,244,247,.4); }
+
+/* ── Article layout ── */
+.article-layout {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+/* ── Sidebar ── */
+.author-card {
+  position: sticky;
+  top: calc(var(--nav-h) + 2rem);
+  background: #fff;
+  border-radius: calc(var(--r)*2);
+  padding: 1.5rem;
+  box-shadow: 0 2px 16px rgba(13,43,69,.08);
+  text-align: center;
+}
+.author-img {
+  width: 72px; height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto .75rem;
+  border: 3px solid var(--sand);
+  box-shadow: 0 2px 10px rgba(13,43,69,.15);
+}
+.author-info { margin-bottom: .25rem; }
+.author-name { display: block; font-weight: 700; font-size: .95rem; color: var(--night); }
+.author-role { font-size: .78rem; color: var(--clay); font-weight: 600; text-transform: uppercase; letter-spacing: .05em; }
+.author-divider { width: 100%; height: 1px; background: var(--sand); margin: 1rem 0; }
+.author-label { font-size: .75rem; font-weight: 600; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); margin-bottom: .6rem; }
+.share-links { display: flex; flex-direction: column; gap: .5rem; }
+.share-btn {
+  display: block;
+  padding: .45rem .75rem;
+  border-radius: var(--r);
+  font-size: .8rem;
+  font-weight: 600;
+  text-align: center;
+  transition: opacity .2s;
+}
+.share-btn:hover { opacity: .8; }
+.share-tw { background: #000; color: #fff; }
+.share-li { background: #0A66C2; color: #fff; }
+.back-link { font-size: .85rem; font-weight: 600; color: var(--clay); display: block; }
+.back-link:hover { text-decoration: underline; }
+
+/* ── Article body typography ── */
+.article-body {
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: var(--earth);
+}
+.article-body :global(p) {
+  margin-bottom: 1.4rem;
+  color: var(--earth);
+  opacity: .9;
+}
+.article-body :global(h3) {
+  font-size: 1.35rem;
+  margin: 2.5rem 0 .85rem;
+  color: var(--night);
+  padding-bottom: .4rem;
+  border-bottom: 2px solid var(--sand);
+}
+.article-body :global(ul) {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.4rem;
+}
+.article-body :global(ul li) {
+  padding: .55rem 1rem .55rem 2.25rem;
+  position: relative;
+  border-left: 3px solid var(--clay);
+  margin-bottom: .5rem;
+  background: var(--sand);
+  border-radius: 0 var(--r) var(--r) 0;
+  font-size: .97rem;
+}
+.article-body :global(ul li strong) { color: var(--clay); }
+.article-body :global(em) { color: var(--clay); font-style: italic; }
+.article-body :global(strong) { color: var(--night); }
+
+/* ── Related ── */
+.related-section {
+  background: var(--cream);
+  padding: 4rem 0;
+}
+.related-section .container { max-width: 1100px; margin: 0 auto; padding-inline: 1.5rem; }
+.related-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.75rem;
+  margin-top: 1.5rem;
+}
+.related-card { text-decoration: none; color: inherit; display: block; }
+.related-img-wrap { position: relative; height: 220px; overflow: hidden; }
+.related-img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s var(--ease); }
+.related-card:hover .related-img { transform: scale(1.05); }
+.related-img-wrap .post-tag-pill { position: absolute; top: .85rem; left: .85rem; }
+.related-body { padding: 1.4rem; }
+.related-body time { font-size: .78rem; color: var(--muted); }
+.related-body h3 { font-size: 1.05rem; margin: .4rem 0 .6rem; line-height: 1.4; }
+.related-body p { font-size: .87rem; margin-bottom: 1rem; }
+.read-more-link { font-weight: 700; font-size: .87rem; color: var(--clay); }
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .article-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 2.5rem 1.25rem;
+  }
+  .author-card {
+    position: static;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+    text-align: left;
+  }
+  .author-img { margin: 0; }
+  .author-divider { width: 100%; }
+  .share-links { flex-direction: row; }
+  .related-grid { grid-template-columns: 1fr; }
+}
+</style>

@@ -1,0 +1,370 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import donateData from '../data/donate.json';
+
+const { hero, amounts, impacts, trustPoints } = donateData;
+---
+
+<Base title="Donate Now" description="Support RAPP's mission — your donation builds peace and progress in Rwanda.">
+  <Nav />
+
+  <div class="page-hero" style={`background-image: url('${hero.image}')`}>
+    <div class="container">
+      <span class="section-label fade-up">{hero.label}</span>
+      <h1 class="fade-up-2">{hero.title}</h1>
+      <p class="fade-up-3">{hero.subtitle}</p>
+    </div>
+  </div>
+
+  <!-- Main donate section -->
+  <section class="section">
+    <div class="container donate-layout">
+
+      <!-- Form -->
+      <div class="donate-form-wrap">
+        <h2>Make Your Gift</h2>
+        <div class="divider"></div>
+
+        <!-- Frequency -->
+        <div class="freq-toggle">
+          <button class="freq-btn active" id="btn-once">Give Once</button>
+          <button class="freq-btn" id="btn-monthly">Monthly</button>
+        </div>
+
+        <!-- Amount selector -->
+        <div class="amount-grid">
+          {amounts.map(a => (
+            <button class="amount-btn" data-amount={a}>${a}</button>
+          ))}
+        </div>
+
+        <!-- Custom amount -->
+        <div class="custom-amount-wrap">
+          <label for="custom">Custom Amount (USD)</label>
+          <div class="custom-input-wrap">
+            <span class="dollar">$</span>
+            <input type="number" id="custom" placeholder="Other amount" min="1" />
+          </div>
+        </div>
+
+        <!-- Project allocation -->
+        <div class="form-field">
+          <label for="project">Allocate to (optional)</label>
+          <select id="project">
+            <option value="">Where it's needed most</option>
+            <option>Youth Leadership Academy</option>
+            <option>Dialogue for Reconciliation</option>
+            <option>Hillside Farmers Cooperative</option>
+            <option>Community Health Network</option>
+            <option>Reforestation Rwanda</option>
+            <option>Women's Economic Empowerment</option>
+          </select>
+        </div>
+
+        <!-- Personal info -->
+        <div class="form-row">
+          <div class="form-field">
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" placeholder="Jane" />
+          </div>
+          <div class="form-field">
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname" placeholder="Doe" />
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" placeholder="jane@example.com" />
+        </div>
+        <div class="form-field">
+          <label><input type="checkbox" /> I'd like to make this donation anonymous</label>
+        </div>
+
+        <button class="btn btn-primary donate-submit">
+          🔒 Donate Securely
+        </button>
+        <p class="secure-note">Secured by SSL. RAPP is a registered non-profit. All donations are tax-deductible.</p>
+      </div>
+
+      <!-- Impact sidebar -->
+      <div class="impact-sidebar">
+        <h3>Your Impact</h3>
+        <div class="divider"></div>
+        <div class="impact-list">
+          {impacts.map(i => (
+            <div class="impact-item">
+              <span class="impact-emoji">{i.icon}</span>
+              <div>
+                <strong>{i.amount}</strong>
+                <p>{i.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div class="trust-block">
+          <p style="font-weight:600;margin-bottom:.75rem;">Why Give to RAPP?</p>
+          <ul class="trust-list">
+            <li>✅ 100% of donations go to programmes</li>
+            <li>✅ Transparent annual reporting</li>
+            <li>✅ Registered NGO in Rwanda</li>
+            <li>✅ Real-time impact updates</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Other ways to give -->
+  <section class="section bg-sand">
+    <div class="container" style="text-align:center;">
+      <span class="section-label">Other Ways to Give</span>
+      <h2>More Ways to Support RAPP</h2>
+      <div class="divider" style="margin:1rem auto;"></div>
+      <div class="ways-grid">
+        <div class="way-card">
+          <div class="way-icon">🏦</div>
+          <h3>Bank Transfer</h3>
+          <p>Contact us for direct bank transfer details in USD, EUR, or RWF.</p>
+          <a href="/contact" class="btn btn-outline" style="margin-top:1rem;">Get Details</a>
+        </div>
+        <div class="way-card">
+          <div class="way-icon">📱</div>
+          <h3>Mobile Money</h3>
+          <p>Donate via MTN Mobile Money or Airtel Money from anywhere in Rwanda.</p>
+          <a href="/contact" class="btn btn-outline" style="margin-top:1rem;">Learn How</a>
+        </div>
+        <div class="way-card">
+          <div class="way-icon">🤝</div>
+          <h3>In-Kind Donations</h3>
+          <p>Donate goods, equipment, expertise, or volunteer your time and skills.</p>
+          <a href="/contact" class="btn btn-outline" style="margin-top:1rem;">Contact Us</a>
+        </div>
+        <div class="way-card">
+          <div class="way-icon">🏢</div>
+          <h3>Corporate Giving</h3>
+          <p>Set up a corporate matching programme or CSR partnership with RAPP.</p>
+          <a href="/contact" class="btn btn-outline" style="margin-top:1rem;">Partner With Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Base>
+
+<style>
+.donate-layout {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+.donate-form-wrap {
+  background: #fff;
+  padding: 2.5rem;
+  border-radius: calc(var(--r)*3);
+  box-shadow: 0 4px 32px rgba(59,42,26,.08);
+}
+.donate-form-wrap h2 { font-size: 1.75rem; }
+
+.freq-toggle {
+  display: flex;
+  background: var(--sand);
+  border-radius: 999px;
+  padding: 4px;
+  margin: 1.5rem 0;
+  width: fit-content;
+}
+.freq-btn {
+  padding: .5rem 1.5rem;
+  border-radius: 999px;
+  border: none;
+  background: transparent;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: .9rem;
+  cursor: pointer;
+  transition: all .2s;
+  color: var(--earth);
+}
+.freq-btn.active {
+  background: var(--clay);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(200,64,47,.25);
+}
+
+.amount-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: .75rem;
+  margin-bottom: 1.25rem;
+}
+.amount-btn {
+  padding: .75rem;
+  border: 2px solid rgba(59,42,26,.15);
+  border-radius: var(--r);
+  background: transparent;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all .2s;
+  color: var(--earth);
+}
+.amount-btn:hover, .amount-btn.selected {
+  border-color: var(--clay);
+  background: rgba(200,64,47,.08);
+  color: var(--clay);
+}
+
+.custom-amount-wrap {
+  margin-bottom: 1.25rem;
+}
+.custom-amount-wrap label {
+  display: block;
+  font-size: .85rem;
+  font-weight: 600;
+  margin-bottom: .4rem;
+  color: var(--earth);
+}
+.custom-input-wrap {
+  display: flex;
+  align-items: center;
+  border: 1.5px solid rgba(59,42,26,.2);
+  border-radius: var(--r);
+  overflow: hidden;
+  transition: border-color .2s;
+}
+.custom-input-wrap:focus-within { border-color: var(--clay); }
+.dollar {
+  padding: 0 .75rem;
+  font-weight: 700;
+  color: var(--muted);
+  font-size: 1.1rem;
+  background: var(--sand);
+  border-right: 1.5px solid rgba(59,42,26,.2);
+  line-height: 48px;
+}
+.custom-input-wrap input {
+  border: none;
+  padding: .75rem 1rem;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  width: 100%;
+  background: transparent;
+  outline: none;
+}
+
+.form-field {
+  margin-bottom: 1.1rem;
+}
+.form-field label {
+  display: block;
+  font-size: .85rem;
+  font-weight: 600;
+  margin-bottom: .4rem;
+  color: var(--earth);
+}
+.form-field input[type="text"],
+.form-field input[type="email"],
+.form-field select {
+  width: 100%;
+  padding: .7rem 1rem;
+  border: 1.5px solid rgba(59,42,26,.2);
+  border-radius: var(--r);
+  font-family: var(--font-body);
+  font-size: .95rem;
+  background: transparent;
+  outline: none;
+  transition: border-color .2s;
+}
+.form-field input:focus, .form-field select:focus { border-color: var(--clay); }
+.form-field input[type="checkbox"] { margin-right: .5rem; cursor: pointer; }
+
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+.donate-submit {
+  width: 100%;
+  justify-content: center;
+  padding: 1rem;
+  font-size: 1rem;
+  margin-top: .5rem;
+}
+.secure-note {
+  font-size: .78rem;
+  text-align: center;
+  color: var(--muted);
+  margin-top: .75rem;
+  opacity: .85;
+}
+
+/* Sidebar */
+.impact-sidebar { position: sticky; top: calc(var(--nav-h) + 1.5rem); }
+.impact-sidebar h3 { font-size: 1.3rem; }
+.impact-list { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 1.5rem; }
+.impact-item { display: flex; gap: .75rem; align-items: flex-start; }
+.impact-emoji { font-size: 1.5rem; flex-shrink: 0; }
+.impact-item strong { color: var(--clay); display: block; margin-bottom: .2rem; }
+.impact-item p { font-size: .85rem; }
+.trust-block {
+  background: var(--sand);
+  padding: 1.25rem 1.5rem;
+  border-radius: var(--r);
+}
+.trust-list { list-style: none; display: flex; flex-direction: column; gap: .5rem; font-size: .88rem; }
+
+/* Ways to give */
+.ways-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+.way-card {
+  background: #fff;
+  padding: 2rem 1.5rem;
+  border-radius: calc(var(--r)*2);
+  box-shadow: 0 2px 12px rgba(59,42,26,.06);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.way-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+.way-card h3 { font-size: 1rem; margin-bottom: .5rem; }
+.way-card p  { font-size: .88rem; }
+
+@media (max-width: 1024px) {
+  .donate-layout { grid-template-columns: 1fr; }
+  .impact-sidebar { position: static; }
+  .ways-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .amount-grid { grid-template-columns: repeat(2, 1fr); }
+  .form-row    { grid-template-columns: 1fr; }
+  .ways-grid   { grid-template-columns: 1fr; }
+}
+</style>
+
+<script>
+const amountBtns = document.querySelectorAll<HTMLButtonElement>('.amount-btn');
+const freqBtns   = document.querySelectorAll<HTMLButtonElement>('.freq-btn');
+
+amountBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    amountBtns.forEach(b => b.classList.remove('selected'));
+    btn.classList.add('selected');
+  });
+});
+
+freqBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    freqBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  });
+});
+</script>

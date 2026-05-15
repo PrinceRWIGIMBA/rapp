@@ -1,0 +1,386 @@
+---
+import Base from '../../layouts/Base.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import allProjectsData from '../../data/projects.json';
+
+const tagColors: Record<string, string> = {
+  Education: '#3B82F6',
+  Peacebuilding: '#10B981',
+  Agriculture: '#F59E0B',
+  Health: '#EF4444',
+  Environment: '#6B8F71',
+  Women: '#8B5CF6',
+};
+
+export function getStaticPaths() {
+  const projects: any[] = allProjectsData.items;
+  return projects.map((project: any) => ({
+    params: { id: String(project.id) },
+    props: {
+      project,
+      related: (project.relatedIds || [])
+        .map((id: number) => projects.find((p: any) => p.id === id))
+        .filter(Boolean),
+    },
+  }));
+}
+
+const { project, related } = Astro.props;
+const tagColor = tagColors[project.tag] ?? 'var(--clay)';
+---
+
+<Base title={project.title} description={project.desc}>
+  <Nav />
+
+  <!-- Hero -->
+  <div class="proj-hero" style={`background-image: url('${project.img}')`}>
+    <div class="container">
+      <div class="proj-hero-meta">
+        <span class="tag-pill" style={`background:${tagColor}`}>{project.tag}</span>
+        <span class={`status-pill ${project.status === 'Active' ? 'active' : 'done'}`}>{project.status}</span>
+        <span class="meta-text">📍 {project.location}</span>
+        <span class="meta-text">📅 {project.year}</span>
+      </div>
+      <h1 class="fade-up">{project.title}</h1>
+      <p class="proj-hero-desc fade-up-2">{project.desc}</p>
+    </div>
+  </div>
+
+  <!-- Stats bar -->
+  <div class="stats-bar">
+    {project.stats.map(s => (
+      <div class="stat-item">
+        <strong>{s.value}</strong>
+        <span>{s.label}</span>
+      </div>
+    ))}
+  </div>
+
+  <!-- Body layout -->
+  <div class="proj-layout">
+    <!-- Sidebar -->
+    <aside class="proj-sidebar">
+      <div class="sidebar-card">
+        <h4>Project Lead</h4>
+        <p class="lead-name">{project.lead}</p>
+        <p class="lead-role">{project.leadRole}</p>
+      </div>
+      <div class="sidebar-card">
+        <h4>Impact</h4>
+        <p class="impact-val">{project.impact}</p>
+      </div>
+      <div class="sidebar-card">
+        <h4>Location</h4>
+        <p>📍 {project.location}</p>
+      </div>
+      <div class="sidebar-card">
+        <h4>Timeline</h4>
+        <p>📅 {project.year}</p>
+      </div>
+      <a href="/donate" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:.5rem;">Support This Project</a>
+      <a href="/projects" class="back-link">← All Projects</a>
+    </aside>
+
+    <!-- Main -->
+    <div class="proj-main">
+      <!-- Article -->
+      <article class="proj-body" set:html={project.body} />
+
+      <!-- Gallery -->
+      {project.gallery && project.gallery.length > 0 && (
+        <div class="gallery-section">
+          <h3>Photo Gallery</h3>
+          <div class="gallery-grid">
+            {project.gallery.map((src, i) => (
+              <img src={src} alt={`${project.title} — photo ${i + 1}`} class="gallery-img" />
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  </div>
+
+  <!-- Related projects -->
+  {related.length > 0 && (
+    <section class="related-section">
+      <div class="container">
+        <span class="section-label">Explore More</span>
+        <h2>Related Projects</h2>
+        <div class="divider"></div>
+        <div class="related-grid">
+          {related.map(r => (
+            <a href={`/projects/${r.id}`} class="related-card card">
+              <div class="related-img-wrap">
+                <img src={r.img} alt={r.title} class="related-img" />
+                <span class="tag-pill small" style={`background:${tagColors[r.tag] ?? 'var(--clay)'}`}>{r.tag}</span>
+                <span class={`status-pill small ${r.status === 'Active' ? 'active' : 'done'}`}>{r.status}</span>
+              </div>
+              <div class="related-body">
+                <p class="meta-text small">📍 {r.location} · {r.year}</p>
+                <h3>{r.title}</h3>
+                <p>{r.desc}</p>
+                <span class="read-more-link">View Project →</span>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- CTA -->
+  <section class="section bg-sand">
+    <div class="container" style="max-width:580px;margin:0 auto;text-align:center;">
+      <span class="section-label">Get Involved</span>
+      <h2>Help Fund This Work</h2>
+      <div class="divider" style="margin:1rem auto;"></div>
+      <p>Your support directly enables projects like this one to reach more communities across Rwanda.</p>
+      <div style="display:flex;gap:1rem;justify-content:center;margin-top:2rem;flex-wrap:wrap;">
+        <a href="/donate" class="btn btn-primary">Donate Now</a>
+        <a href="/contact" class="btn btn-outline">Partner With Us</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Base>
+
+<style>
+/* ── Hero ── */
+.proj-hero {
+  padding: calc(var(--nav-h) + 5rem) 0 5rem;
+  background-color: var(--earth);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  position: relative;
+  overflow: hidden;
+  min-height: 420px;
+  display: flex;
+  align-items: flex-end;
+}
+.proj-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(8,28,46,.92) 0%,
+    rgba(13,43,69,.70) 50%,
+    rgba(13,43,69,.40) 100%
+  );
+}
+.proj-hero .container { position: relative; z-index: 2; padding-bottom: 1rem; }
+.proj-hero h1 {
+  color: #fff;
+  max-width: 860px;
+  margin: .75rem 0;
+  text-shadow: 0 2px 20px rgba(0,0,0,.4);
+  font-size: clamp(1.8rem, 4vw, 3rem);
+}
+.proj-hero-desc {
+  color: rgba(238,244,247,.85);
+  max-width: 680px;
+  font-size: 1.05rem;
+  margin: 0;
+}
+.proj-hero-meta {
+  display: flex;
+  align-items: center;
+  gap: .65rem;
+  flex-wrap: wrap;
+  margin-bottom: .25rem;
+}
+
+/* Pills */
+.tag-pill {
+  color: #fff;
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: .28rem .8rem;
+  border-radius: 999px;
+}
+.tag-pill.small { font-size: .65rem; padding: .22rem .65rem; }
+.status-pill {
+  font-size: .7rem;
+  font-weight: 700;
+  padding: .28rem .8rem;
+  border-radius: 999px;
+}
+.status-pill.small { font-size: .65rem; padding: .22rem .65rem; }
+.status-pill.active { background: rgba(16,185,129,.9); color: #fff; }
+.status-pill.done   { background: rgba(107,114,128,.85); color: #fff; }
+.meta-text { font-size: .82rem; color: rgba(238,244,247,.75); }
+.meta-text.small { color: var(--muted); font-size: .8rem; }
+
+/* Stats bar */
+.stats-bar {
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  background: var(--earth);
+  flex-wrap: wrap;
+}
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem 2.5rem;
+  border-right: 1px solid rgba(238,244,247,.1);
+  flex: 1;
+  min-width: 140px;
+}
+.stat-item:last-child { border-right: none; }
+.stat-item strong {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--gold);
+  line-height: 1;
+}
+.stat-item span {
+  font-size: .8rem;
+  color: rgba(238,244,247,.65);
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  margin-top: .3rem;
+}
+
+/* Layout */
+.proj-layout {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+/* Sidebar */
+.proj-sidebar { position: sticky; top: calc(var(--nav-h) + 2rem); display: flex; flex-direction: column; gap: 1rem; }
+.sidebar-card {
+  background: #fff;
+  border-radius: calc(var(--r)*2);
+  padding: 1.25rem;
+  box-shadow: 0 2px 12px rgba(13,43,69,.07);
+}
+.sidebar-card h4 {
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: .5rem;
+  font-family: var(--font-body);
+}
+.sidebar-card p { font-size: .9rem; }
+.lead-name { font-weight: 700; color: var(--night); font-size: .95rem; }
+.lead-role { font-size: .78rem; color: var(--clay); font-weight: 600; text-transform: uppercase; letter-spacing: .05em; }
+.impact-val { font-family: var(--font-display); font-size: 1.3rem; font-weight: 900; color: var(--clay); }
+.back-link { font-size: .85rem; font-weight: 600; color: var(--clay); text-align: center; display: block; margin-top: .25rem; }
+.back-link:hover { text-decoration: underline; }
+
+/* Article body */
+.proj-body {
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: var(--earth);
+}
+.proj-body :global(p) {
+  margin-bottom: 1.4rem;
+  color: var(--earth);
+  opacity: .9;
+}
+.proj-body :global(h3) {
+  font-size: 1.35rem;
+  margin: 2.5rem 0 .85rem;
+  color: var(--night);
+  padding-bottom: .4rem;
+  border-bottom: 2px solid var(--sand);
+}
+.proj-body :global(ul) {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.4rem;
+}
+.proj-body :global(ul li) {
+  padding: .55rem 1rem .55rem 1.25rem;
+  position: relative;
+  border-left: 3px solid var(--clay);
+  margin-bottom: .5rem;
+  background: var(--sand);
+  border-radius: 0 var(--r) var(--r) 0;
+  font-size: .97rem;
+}
+.proj-body :global(ul li strong) { color: var(--clay); }
+.proj-body :global(strong) { color: var(--night); }
+
+/* Gallery */
+.gallery-section { margin-top: 3rem; }
+.gallery-section h3 {
+  font-size: 1.35rem;
+  color: var(--night);
+  margin-bottom: 1rem;
+  padding-bottom: .4rem;
+  border-bottom: 2px solid var(--sand);
+}
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+.gallery-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: calc(var(--r)*2);
+  box-shadow: 0 2px 12px rgba(13,43,69,.1);
+  transition: transform .3s var(--ease);
+}
+.gallery-img:hover { transform: scale(1.03); }
+
+/* Related */
+.related-section {
+  background: var(--cream);
+  padding: 4rem 0;
+}
+.related-section .container { max-width: 1100px; margin: 0 auto; padding-inline: 1.5rem; }
+.related-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.75rem;
+  margin-top: 1.5rem;
+}
+.related-card { text-decoration: none; color: inherit; display: block; }
+.related-img-wrap { position: relative; height: 220px; overflow: hidden; }
+.related-img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s var(--ease); }
+.related-card:hover .related-img { transform: scale(1.05); }
+.related-img-wrap .tag-pill { position: absolute; top: .85rem; left: .85rem; }
+.related-img-wrap .status-pill { position: absolute; top: .85rem; right: .85rem; }
+.related-body { padding: 1.4rem; }
+.related-body h3 { font-size: 1.05rem; margin: .4rem 0 .6rem; line-height: 1.4; }
+.related-body p { font-size: .87rem; margin-bottom: 1rem; }
+.read-more-link { font-weight: 700; font-size: .87rem; color: var(--clay); }
+
+/* Responsive */
+@media (max-width: 900px) {
+  .proj-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 2.5rem 1.25rem;
+  }
+  .proj-sidebar { position: static; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .related-grid { grid-template-columns: 1fr; }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  .stats-bar { justify-content: flex-start; }
+  .stat-item { min-width: 120px; padding: 1.25rem 1.5rem; }
+}
+@media (max-width: 500px) {
+  .proj-sidebar { grid-template-columns: 1fr; }
+  .gallery-grid { grid-template-columns: 1fr; }
+}
+</style>

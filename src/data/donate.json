@@ -1,0 +1,22 @@
+{
+  "hero": {
+    "label": "Make a Difference",
+    "title": "Donate Now",
+    "subtitle": "Every dollar you give directly funds peacebuilding, education, and community development across Rwanda.",
+    "image": "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=1400&q=80"
+  },
+  "amounts": [10, 25, 50, 100, 250, 500],
+  "impacts": [
+    { "amount": "$10", "icon": "📚", "desc": "Provides school supplies for one child for a month." },
+    { "amount": "$25", "icon": "🌱", "desc": "Plants 25 trees and supports a local reforestation worker." },
+    { "amount": "$50", "icon": "💊", "desc": "Covers a community health visit for five families." },
+    { "amount": "$100", "icon": "🤝", "desc": "Funds one day of a peacebuilding dialogue session." },
+    { "amount": "$250", "icon": "🎓", "desc": "Sponsors one month of youth leadership training." },
+    { "amount": "$500", "icon": "🏡", "desc": "Supports a women's cooperative for a full quarter." }
+  ],
+  "trustPoints": [
+    { "icon": "🔒", "title": "Secure & Safe", "desc": "All transactions are encrypted and processed securely." },
+    { "icon": "📋", "title": "Fully Transparent", "desc": "Annual reports and financial statements available on request." },
+    { "icon": "🌍", "title": "100% to Programmes", "desc": "Administrative costs are covered by dedicated operational grants." }
+  ]
+}

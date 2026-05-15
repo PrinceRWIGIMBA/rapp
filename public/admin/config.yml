@@ -1,0 +1,334 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/images"
+public_folder: "/images"
+
+collections:
+
+  # ─── SITE SETTINGS ───────────────────────────────────────────────
+  - name: "settings"
+    label: "⚙️ Site Settings"
+    files:
+      - file: "src/data/site.json"
+        label: "Site Information"
+        name: "site"
+        fields:
+          - { label: "Site Title", name: "title", widget: "string" }
+          - { label: "Site Description", name: "description", widget: "text" }
+          - { label: "Site URL", name: "url", widget: "string" }
+          - { label: "Email", name: "email", widget: "string" }
+          - { label: "Phone", name: "phone", widget: "string" }
+          - { label: "Address", name: "address", widget: "string" }
+          - { label: "Logo Name", name: "logoName", widget: "string" }
+          - { label: "Logo Tagline", name: "logoSub", widget: "string" }
+          - label: "Social Media"
+            name: "social"
+            widget: "object"
+            fields:
+              - { label: "Facebook URL", name: "facebook", widget: "string", required: false }
+              - { label: "Twitter URL", name: "twitter", widget: "string", required: false }
+              - { label: "Instagram URL", name: "instagram", widget: "string", required: false }
+              - { label: "LinkedIn URL", name: "linkedin", widget: "string", required: false }
+
+  # ─── HOME PAGE ───────────────────────────────────────────────────
+  - name: "home"
+    label: "🏠 Home Page"
+    files:
+      - file: "src/data/home.json"
+        label: "Home Page Content"
+        name: "home"
+        fields:
+          - label: "Hero Section"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "Label (small text above title)", name: "label", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Subtitle", name: "subtitle", widget: "text" }
+              - { label: "Background Image", name: "image", widget: "image" }
+              - { label: "Button 1 Text", name: "cta1Text", widget: "string" }
+              - { label: "Button 1 Link", name: "cta1Link", widget: "string" }
+              - { label: "Button 2 Text", name: "cta2Text", widget: "string" }
+              - { label: "Button 2 Link", name: "cta2Link", widget: "string" }
+
+          - label: "Stats Bar"
+            name: "stats"
+            widget: "list"
+            summary: "{{fields.number}} – {{fields.label}}"
+            fields:
+              - { label: "Number", name: "number", widget: "string" }
+              - { label: "Label", name: "label", widget: "string" }
+
+          - label: "Feature Cards"
+            name: "features"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "Icon (emoji)", name: "icon", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "desc", widget: "text" }
+
+          - label: "Mission Section"
+            name: "missionSection"
+            widget: "object"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Body", name: "body", widget: "text" }
+              - { label: "Image", name: "image", widget: "image" }
+              - { label: "Button Text", name: "ctaText", widget: "string" }
+              - { label: "Button Link", name: "ctaLink", widget: "string" }
+
+          - label: "Latest News Section"
+            name: "latestNews"
+            widget: "object"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - label: "Post Slugs to Feature (3)"
+                name: "slugs"
+                widget: "list"
+                field: { label: "Slug", name: "slug", widget: "string" }
+
+  # ─── ABOUT PAGE ──────────────────────────────────────────────────
+  - name: "about"
+    label: "ℹ️ About Page"
+    files:
+      - file: "src/data/about.json"
+        label: "About Page Content"
+        name: "about"
+        fields:
+          - label: "Hero Section"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Subtitle", name: "subtitle", widget: "text" }
+              - { label: "Background Image", name: "image", widget: "image" }
+
+          - label: "Our Story"
+            name: "story"
+            widget: "object"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - label: "Paragraphs"
+                name: "paragraphs"
+                widget: "list"
+                field: { label: "Paragraph", name: "paragraph", widget: "text" }
+              - { label: "Image", name: "image", widget: "image" }
+
+          - label: "Core Values"
+            name: "values"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "Icon (emoji)", name: "icon", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "desc", widget: "text" }
+
+          - label: "Timeline / Milestones"
+            name: "milestones"
+            widget: "list"
+            summary: "{{fields.year}} – {{fields.event}}"
+            fields:
+              - { label: "Year", name: "year", widget: "string" }
+              - { label: "Event", name: "event", widget: "text" }
+
+          - label: "Team Members"
+            name: "team"
+            widget: "list"
+            summary: "{{fields.name}} – {{fields.role}}"
+            fields:
+              - { label: "Full Name", name: "name", widget: "string" }
+              - { label: "Role / Title", name: "role", widget: "string" }
+              - { label: "Bio", name: "bio", widget: "text" }
+              - { label: "Photo", name: "photo", widget: "image" }
+
+  # ─── CONTACT PAGE ────────────────────────────────────────────────
+  - name: "contact"
+    label: "📞 Contact Page"
+    files:
+      - file: "src/data/contact.json"
+        label: "Contact Page Content"
+        name: "contact"
+        fields:
+          - label: "Hero Section"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Background Image", name: "image", widget: "image" }
+
+          - label: "Offices"
+            name: "offices"
+            widget: "list"
+            summary: "{{fields.name}}"
+            fields:
+              - { label: "Office Name", name: "name", widget: "string" }
+              - { label: "Address", name: "address", widget: "string" }
+              - { label: "Phone", name: "phone", widget: "string" }
+              - { label: "Email", name: "email", widget: "string" }
+              - { label: "Opening Hours", name: "hours", widget: "string" }
+
+          - label: "Contact Form Topics"
+            name: "topics"
+            widget: "list"
+            field: { label: "Topic", name: "topic", widget: "string" }
+
+  # ─── PARTNERS PAGE ───────────────────────────────────────────────
+  - name: "partners"
+    label: "🤝 Partners Page"
+    files:
+      - file: "src/data/partners.json"
+        label: "Partners Page Content"
+        name: "partners"
+        fields:
+          - label: "Hero Section"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Subtitle", name: "subtitle", widget: "text" }
+              - { label: "Background Image", name: "image", widget: "image" }
+
+          - label: "Partner Tiers"
+            name: "tiers"
+            widget: "list"
+            summary: "{{fields.level}}"
+            fields:
+              - { label: "Tier Name", name: "level", widget: "string" }
+              - { label: "Accent Color (CSS var)", name: "color", widget: "string", hint: "e.g. var(--gold)" }
+              - label: "Partners in this tier"
+                name: "partners"
+                widget: "list"
+                summary: "{{fields.name}}"
+                fields:
+                  - { label: "Partner Name", name: "name", widget: "string" }
+                  - { label: "Type (e.g. NGO, Government)", name: "type", widget: "string" }
+                  - { label: "Description", name: "desc", widget: "text" }
+
+          - label: "How to Partner Cards"
+            name: "howToPartner"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "Icon (emoji)", name: "icon", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "desc", widget: "text" }
+
+  # ─── DONATE PAGE ─────────────────────────────────────────────────
+  - name: "donate"
+    label: "💛 Donate Page"
+    files:
+      - file: "src/data/donate.json"
+        label: "Donate Page Content"
+        name: "donate"
+        fields:
+          - label: "Hero Section"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Subtitle", name: "subtitle", widget: "text" }
+              - { label: "Background Image", name: "image", widget: "image" }
+
+          - label: "Quick-Select Amounts ($)"
+            name: "amounts"
+            widget: "list"
+            field: { label: "Amount", name: "amount", widget: "number" }
+
+          - label: "Impact Messages"
+            name: "impacts"
+            widget: "list"
+            summary: "{{fields.amount}} – {{fields.desc}}"
+            fields:
+              - { label: "Amount Label (e.g. $50)", name: "amount", widget: "string" }
+              - { label: "Icon (emoji)", name: "icon", widget: "string" }
+              - { label: "Description", name: "desc", widget: "text" }
+
+          - label: "Trust Points"
+            name: "trustPoints"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "Icon (emoji)", name: "icon", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "desc", widget: "text" }
+
+  # ─── BLOG POSTS ──────────────────────────────────────────────────
+  - name: "posts"
+    label: "📝 Blog Posts"
+    files:
+      - file: "src/data/posts.json"
+        label: "All Blog Posts"
+        name: "posts"
+        fields:
+          - label: "Posts"
+            name: "items"
+            widget: "list"
+            label: "All Posts"
+            summary: "{{fields.title}} ({{fields.date}})"
+            fields:
+              - { label: "Slug (URL key, no spaces)", name: "slug", widget: "string" }
+              - { label: "Tag / Category", name: "tag", widget: "string" }
+              - { label: "Date", name: "date", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Author Name", name: "author", widget: "string" }
+              - { label: "Author Role", name: "authorRole", widget: "string" }
+              - { label: "Author Photo URL", name: "authorPhoto", widget: "image" }
+              - { label: "Read Time (e.g. 4 min read)", name: "readTime", widget: "string" }
+              - { label: "Cover Image", name: "img", widget: "image" }
+              - { label: "Excerpt", name: "excerpt", widget: "text" }
+              - { label: "Body (HTML)", name: "body", widget: "markdown" }
+              - label: "Related Post Slugs"
+                name: "relatedSlugs"
+                widget: "list"
+                field: { label: "Slug", name: "slug", widget: "string" }
+
+  # ─── PROJECTS ────────────────────────────────────────────────────
+  - name: "projects"
+    label: "🗂️ Projects"
+    files:
+      - file: "src/data/projects.json"
+        label: "All Projects"
+        name: "projects"
+        fields:
+          - label: "Projects"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.title}} ({{fields.tag}})"
+            fields:
+              - { label: "ID (unique number)", name: "id", widget: "number" }
+              - { label: "Tag / Category", name: "tag", widget: "string" }
+              - { label: "Status (e.g. Active)", name: "status", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Location", name: "location", widget: "string" }
+              - { label: "Short Description", name: "desc", widget: "text" }
+              - { label: "Cover Image", name: "img", widget: "image" }
+              - { label: "Impact Summary (e.g. 500+ youth trained)", name: "impact", widget: "string" }
+              - { label: "Year(s) Active (e.g. 2022–Present)", name: "year", widget: "string" }
+              - label: "Gallery Images"
+                name: "gallery"
+                widget: "list"
+                field: { label: "Image URL", name: "url", widget: "image" }
+              - label: "Stats"
+                name: "stats"
+                widget: "list"
+                summary: "{{fields.value}} {{fields.label}}"
+                fields:
+                  - { label: "Value (e.g. 500+)", name: "value", widget: "string" }
+                  - { label: "Label (e.g. Youth Trained)", name: "label", widget: "string" }
+              - { label: "Project Lead Name", name: "lead", widget: "string" }
+              - { label: "Project Lead Role", name: "leadRole", widget: "string" }
+              - { label: "Full Description (HTML / Markdown)", name: "body", widget: "markdown" }
+              - label: "Related Project IDs"
+                name: "relatedIds"
+                widget: "list"
+                field: { label: "ID", name: "id", widget: "number" }

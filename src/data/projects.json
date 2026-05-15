@@ -1,0 +1,250 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "tag": "Education",
+      "status": "Active",
+      "title": "Youth Leadership Academy",
+      "location": "Musanze, Rwanda",
+      "desc": "Equipping young Rwandans with leadership, critical thinking, and entrepreneurship skills through a rigorous 12-month training program.",
+      "img": "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=1400&q=80",
+      "impact": "500+ youth trained",
+      "year": "2022\u2013Present",
+      "gallery": [
+        "https://images.unsplash.com/photo-1529390079861-591de354faf5?w=700&q=80",
+        "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=700&q=80",
+        "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=700&q=80"
+      ],
+      "stats": [
+        {
+          "value": "500+",
+          "label": "Youth Trained"
+        },
+        {
+          "value": "3",
+          "label": "Districts Reached"
+        },
+        {
+          "value": "87%",
+          "label": "Employment Rate"
+        },
+        {
+          "value": "12",
+          "label": "Month Programme"
+        }
+      ],
+      "lead": "Jean-Pierre Habimana",
+      "leadRole": "Director of Projects",
+      "body": "\n      <p>The Youth Leadership Academy is RAPP's flagship education programme, launched in 2022 in partnership with the Musanze District local government. It targets young Rwandans aged 18\u201330 who have completed secondary school but lack pathways to meaningful employment or civic engagement.</p>\n\n      <h3>What the Programme Delivers</h3>\n      <p>The Academy runs as a full-time, 12-month residential programme combining classroom learning with community practicum. Students spend four days a week in structured coursework and one day a week applying their learning in a real community project \u2014 designing a solution to a local challenge, presenting to community stakeholders, and measuring their own impact.</p>\n      <p>The curriculum is built around five pillars: critical thinking, ethical leadership, entrepreneurship and financial literacy, civic engagement, and peace and conflict resolution. Every pillar connects RAPP's core mission to the practical skills young Rwandans need to lead.</p>\n\n      <h3>The Entrepreneurship Track</h3>\n      <p>One of the Academy's most distinctive features is its entrepreneurship track. Students who complete the leadership core can apply for a 6-month business incubation extension, during which they receive seed funding (up to 500,000 RWF), mentorship from established Rwandan entrepreneurs, and access to RAPP's network of business partners and micro-finance institutions.</p>\n      <p>To date, 34 student-founded businesses have launched through this track, creating an estimated 90 additional jobs in the Musanze economy.</p>\n\n      <h3>Results After Three Years</h3>\n      <p>Since launching in 2022, the Academy has graduated three cohorts totalling 514 students. Follow-up surveys conducted 12 months after graduation show that 87% of graduates are in formal employment, running their own business, or engaged in recognised community leadership \u2014 compared to a baseline of 31% at programme entry. Graduates have gone on to serve in district government, lead community health committees, found NGOs, and mentor the cohorts that followed them.</p>\n\n      <h3>Expanding the Model</h3>\n      <p>Following the success of the Musanze campus, RAPP is currently constructing a second Academy site in Huye, scheduled to open in Q3 2025. A third site in Kayonza is in feasibility study. The vision: a nationwide network of Youth Leadership Academies, each rooted in its local community while sharing a common curriculum and quality standard, producing a generation of Rwandan leaders equipped to drive the country's next decade of progress.</p>\n    ",
+      "relatedIds": [
+        6,
+        4
+      ]
+    },
+    {
+      "id": 2,
+      "tag": "Peacebuilding",
+      "status": "Active",
+      "title": "Dialogue for Reconciliation",
+      "location": "Nationwide",
+      "desc": "Facilitating structured dialogue sessions between communities to heal wounds of the past and build foundations for lasting peace.",
+      "img": "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1400&q=80",
+      "impact": "200+ sessions held",
+      "year": "2018\u2013Present",
+      "gallery": [
+        "https://images.unsplash.com/photo-1573497620053-ea5300f94f21?w=700&q=80",
+        "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=700&q=80",
+        "https://images.unsplash.com/photo-1544027993-37dbfe43562a?w=700&q=80"
+      ],
+      "stats": [
+        {
+          "value": "200+",
+          "label": "Dialogue Sessions"
+        },
+        {
+          "value": "85",
+          "label": "Communities Reached"
+        },
+        {
+          "value": "12,000+",
+          "label": "Participants"
+        },
+        {
+          "value": "7",
+          "label": "Years Running"
+        }
+      ],
+      "lead": "Dr. Amina Uwimana",
+      "leadRole": "Executive Director",
+      "body": "\n      <p>Dialogue for Reconciliation is the programme that sits at the very heart of RAPP's identity. Launched in 2018, it is built on a simple but demanding premise: that lasting peace is not built by governments alone, or through formal treaties, but through the painstaking, deeply human work of communities choosing to face each other, tell the truth, and decide to move forward together.</p>\n\n      <h3>The Dialogue Methodology</h3>\n      <p>RAPP's dialogue sessions follow a structured methodology developed over years of practice and refined in collaboration with international peacebuilding experts, Rwandan psychologists, and community elders. Each dialogue process runs across six sessions held over three months, allowing trust to build gradually between participants.</p>\n      <p>Sessions are facilitated by RAPP-trained community facilitators \u2014 not external experts \u2014 who are drawn from the communities themselves. This is deliberate: sustainable reconciliation cannot be imported. It must be owned by the people who live it.</p>\n\n      <h3>What Happens in the Room</h3>\n      <p>The sessions move through distinct phases: opening (establishing safety and shared agreements), testimony (structured sharing of personal experiences of the conflict), acknowledgement (recognising harm without yet requiring forgiveness), envisioning (articulating a shared future both parties want), and commitment (identifying concrete joint actions to build that future).</p>\n      <p>Not every process reaches its final phase. Some communities need multiple cycles. Some dialogues surface new layers of pain that require additional support before they can move forward. RAPP's approach honours that complexity rather than rushing toward a pre-scripted reconciliation moment.</p>\n\n      <h3>Seven Years of Impact</h3>\n      <p>Since 2018, the programme has facilitated more than 200 structured dialogue processes involving over 12,000 participants across 85 communities in all five provinces. Post-dialogue surveys, conducted six months after completion, consistently show significant improvements in inter-group trust, willingness to cooperate on community projects, and reported sense of personal peace and healing among participants.</p>\n      <p>Twelve communities that completed the dialogue process have gone on to establish joint community development committees \u2014 governance structures that continue to function years after RAPP's direct involvement ended.</p>\n\n      <h3>Training the Next Generation of Facilitators</h3>\n      <p>One of the programme's proudest achievements is its facilitator training pipeline. To date, 148 community members have been trained as certified RAPP dialogue facilitators, and 37 of them have gone on to facilitate processes independently, without RAPP's direct involvement. The methodology is becoming self-replicating \u2014 exactly as intended.</p>\n    ",
+      "relatedIds": [
+        1,
+        3
+      ]
+    },
+    {
+      "id": 3,
+      "tag": "Agriculture",
+      "status": "Completed",
+      "title": "Hillside Farmers Cooperative",
+      "location": "Southern Province",
+      "desc": "Organizing smallholder farmers into cooperatives with access to modern tools, market linkages, and climate-smart farming techniques.",
+      "img": "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=1400&q=80",
+      "impact": "1,200 families supported",
+      "year": "2019\u20132023",
+      "gallery": [
+        "https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=700&q=80",
+        "https://images.unsplash.com/photo-1586771107445-d3ca888129ff?w=700&q=80",
+        "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=700&q=80"
+      ],
+      "stats": [
+        {
+          "value": "1,200",
+          "label": "Families Supported"
+        },
+        {
+          "value": "14",
+          "label": "Cooperatives Formed"
+        },
+        {
+          "value": "45%",
+          "label": "Avg. Income Increase"
+        },
+        {
+          "value": "4",
+          "label": "Years Running"
+        }
+      ],
+      "lead": "Jean-Pierre Habimana",
+      "leadRole": "Director of Projects",
+      "body": "\n      <p>The Hillside Farmers Cooperative programme ran from 2019 to 2023 in Rwanda's Southern Province, where steep, terraced hillsides are both the landscape's defining feature and one of its greatest agricultural challenges. Working with smallholder farmers who were managing their land in isolation, RAPP helped organise 14 formal cooperatives and connected them to markets, modern inputs, and climate-smart farming knowledge that transformed their yields \u2014 and their livelihoods.</p>\n\n      <h3>The Challenge of Smallholder Farming</h3>\n      <p>Rwanda's Southern Province is home to thousands of smallholder farmers, most tending plots of less than half a hectare on heavily terraced hillsides. Individually, these farmers faced a common set of obstacles: limited access to quality seeds and fertilisers, no leverage to negotiate fair prices with buyers, no insurance against crop failure, and farming practices that, while deeply familiar, were increasingly ill-suited to the changing rainfall patterns brought by climate change.</p>\n\n      <h3>What RAPP Did</h3>\n      <p>RAPP's approach was to work with existing social networks \u2014 neighbours who already knew and trusted each other \u2014 to form cooperatives of 80\u2013120 farmers each. Once legally registered, each cooperative gained access to RAPP's programme benefits: bulk purchasing of inputs at reduced cost, collective negotiation with buyers and processors, access to a cooperative savings and loan scheme, and a 12-week climate-smart agriculture training facilitated by Rwanda Agriculture and Animal Resources Development Board agronomists.</p>\n\n      <h3>Impact at Scale</h3>\n      <p>By the programme's end in 2023, 14 cooperatives had been established with a combined membership of 1,247 farming families. Average household agricultural income across cooperative members increased by 45% over the programme period. Three cooperatives established direct supply agreements with Kigali-based food processors, providing guaranteed market access that removed the uncertainty that had plagued individual farmers for generations.</p>\n      <p>The programme also demonstrated measurable environmental impact: participating farms showed a 28% reduction in topsoil erosion, attributed to the adoption of improved terracing techniques and the introduction of cover crops.</p>\n\n      <h3>Legacy: What Remains</h3>\n      <p>Though RAPP's direct involvement ended in 2023, 12 of the 14 cooperatives remain active and self-sustaining. Three have expanded their membership. The cooperative model has been adopted by Rwanda's Ministry of Agriculture as a case study in its smallholder development strategy. Most importantly, 1,200 farming families who were isolated and vulnerable are now organised, connected, and building a more secure future together.</p>\n    ",
+      "relatedIds": [
+        5,
+        2
+      ]
+    },
+    {
+      "id": 4,
+      "tag": "Health",
+      "status": "Active",
+      "title": "Community Health Worker Network",
+      "location": "Eastern Province",
+      "desc": "Training and deploying community health workers to provide first-line healthcare services in remote areas.",
+      "img": "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1400&q=80",
+      "impact": "80,000+ people reached",
+      "year": "2021\u2013Present",
+      "gallery": [
+        "https://images.unsplash.com/photo-1584515933487-779824d29309?w=700&q=80",
+        "https://images.unsplash.com/photo-1530026186672-2cd00ffc50fe?w=700&q=80",
+        "https://images.unsplash.com/photo-1551601651-2a8555f1a136?w=700&q=80"
+      ],
+      "stats": [
+        {
+          "value": "80,000+",
+          "label": "People Reached"
+        },
+        {
+          "value": "340",
+          "label": "CHWs Deployed"
+        },
+        {
+          "value": "48",
+          "label": "Villages Covered"
+        },
+        {
+          "value": "14,200",
+          "label": "Antenatal Visits"
+        }
+      ],
+      "lead": "Jean-Pierre Habimana",
+      "leadRole": "Director of Projects",
+      "body": "\n      <p>Launched in 2021, the Community Health Worker (CHW) Network is RAPP's largest active health programme and one of the most impactful in its history. Working in Rwanda's Eastern Province \u2014 the country's largest, with significant geographic barriers to formal healthcare \u2014 the programme has trained and deployed 340 community health workers who together reached 80,000 people in 2024 alone.</p>\n\n      <h3>Why Community Health Workers</h3>\n      <p>Community health workers are one of the most evidence-based, cost-effective interventions in global health. Trained community members who are trusted by their neighbours, they reach people who would otherwise never see a healthcare professional \u2014 detecting illness earlier, providing basic treatment, making timely referrals, and delivering health education that changes behaviour at the household level.</p>\n      <p>In Rwanda's Eastern Province, where a single community health centre may serve tens of thousands of people spread across dozens of villages connected by rough roads, CHWs are not a supplement to the health system. For many people, they are the health system.</p>\n\n      <h3>Training and Equipment</h3>\n      <p>RAPP's CHW training programme is a rigorous 12-week residential course covering preventive care, maternal and child health, malnutrition screening and treatment, basic first aid and wound care, disease surveillance and reporting, and the use of a digital health tracking application developed specifically for the programme. Each CHW graduates with a standardised field kit, a smartphone pre-loaded with the health app, and a monthly supply of essential medicines and oral rehydration salts.</p>\n\n      <h3>Digital Innovation</h3>\n      <p>The programme's digital health tracking system \u2014 built in partnership with a Kigali-based health technology startup \u2014 has been one of its most important innovations. The app allows CHWs to log patient visits and outcomes, flag urgent cases for health centre follow-up, access treatment guidance offline, and contribute to a real-time disease surveillance dashboard used by district health authorities. In 2024, the system helped identify and respond to two localised cholera outbreaks three weeks earlier than would have been possible through traditional reporting channels.</p>\n\n      <h3>Looking Forward</h3>\n      <p>In 2025, RAPP will expand the CHW Network to two additional districts and introduce a peer supervision model in which senior CHWs mentor and oversee newer recruits. A community health insurance linkage pilot will begin in Q2 2025, connecting CHW clients to Rwanda's Mutuelle de Sant\u00e9 programme and reducing the financial barriers that keep the most vulnerable away from formal care. The goal: 150,000 people reached by the end of 2026.</p>\n    ",
+      "relatedIds": [
+        1,
+        5
+      ]
+    },
+    {
+      "id": 5,
+      "tag": "Environment",
+      "status": "Active",
+      "title": "Reforestation Rwanda",
+      "location": "Western Province",
+      "desc": "Restoring degraded hillsides through tree planting campaigns while creating sustainable livelihoods for local communities.",
+      "img": "https://images.unsplash.com/photo-1448375240586-882707db888b?w=1400&q=80",
+      "impact": "500,000 trees planted",
+      "year": "2020\u2013Present",
+      "gallery": [
+        "https://images.unsplash.com/photo-1542601906897-c2a1dd7eb929?w=700&q=80",
+        "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=700&q=80",
+        "https://images.unsplash.com/photo-1500076656116-558758c991c1?w=700&q=80"
+      ],
+      "stats": [
+        {
+          "value": "500K+",
+          "label": "Trees Planted"
+        },
+        {
+          "value": "1,400",
+          "label": "Green Guardians"
+        },
+        {
+          "value": "47",
+          "label": "Schools Partnered"
+        },
+        {
+          "value": "1M",
+          "label": "Target by 2027"
+        }
+      ],
+      "lead": "Jean-Pierre Habimana",
+      "leadRole": "Director of Projects",
+      "body": "\n      <p>Reforestation Rwanda is one of RAPP's most visible and beloved programmes \u2014 a campaign that has, since 2020, planted more than half a million trees across Rwanda's Western Province, with a target of one million by 2027. But as with all of RAPP's work, the trees are only part of the story.</p>\n\n      <h3>The Problem: Degraded Hillsides, Vulnerable Communities</h3>\n      <p>Rwanda's Western Province includes some of the most ecologically significant terrain in East Africa, but decades of subsistence farming and charcoal production have left many hillsides stripped of their natural cover. The consequences are cascading: without tree roots to hold the soil, heavy rains trigger erosion and landslides; agricultural plots lose their fertility; water sources become unreliable; and communities that depend on the land face deepening insecurity.</p>\n      <p>Reforestation is not simply an environmental intervention \u2014 it is a community resilience intervention, a food security intervention, and a climate adaptation intervention all at once.</p>\n\n      <h3>The Green Guardian Model</h3>\n      <p>Reforestation Rwanda's most important innovation is its Green Guardian model. Rather than bringing in external teams to plant trees, RAPP trains and employs community members \u2014 with a deliberate focus on women and youth \u2014 as paid Green Guardians: trained tree planters, nursery managers, and forest monitors who receive a monthly stipend for their work and develop marketable environmental management skills.</p>\n      <p>To date, 1,400 Green Guardians have been trained and employed across 38 communities in the Western Province. The model ensures that reforestation creates immediate economic benefit for the communities doing the work, building their stake in the trees' long-term survival.</p>\n\n      <h3>The Species Strategy</h3>\n      <p>Working with Rwanda's Forestry Authority and international botanists, RAPP developed a planting strategy that balances ecological restoration with economic utility. Approximately 60% of planting uses native species \u2014 restoring biodiversity and providing long-term carbon sequestration and watershed protection. The remaining 40% uses fast-growing economically valuable species that provide near-term timber and sustainable charcoal income, reducing pressure on remaining natural forests.</p>\n\n      <h3>School and Faith Community Partnerships</h3>\n      <p>A key driver of the programme's scale has been partnerships with 47 schools and 12 faith communities across the Western Province. Each school maintains a school nursery that produces seedlings for the wider campaign, integrating environmental education into the school curriculum while contributing materially to the reforestation effort. Faith community leaders have been among the programme's most powerful advocates, framing tree-planting as a moral and spiritual obligation \u2014 a reframing that has dramatically expanded participation among older community members.</p>\n\n      <h3>The Road to One Million</h3>\n      <p>With 500,000 trees in the ground and the campaign expanding to the Northern Province in 2025, the target of one million trees by 2027 is firmly in sight. A new digital tree-tracking platform, launching in mid-2025, will allow donors and community members to follow the growth of individual trees through satellite imagery and Green Guardian field reports \u2014 creating a direct connection between global support and local impact.</p>\n    ",
+      "relatedIds": [
+        3,
+        6
+      ]
+    },
+    {
+      "id": 6,
+      "tag": "Women",
+      "status": "Active",
+      "title": "Women's Economic Empowerment",
+      "location": "Kigali & Northern Province",
+      "desc": "Providing micro-loans, business training, and mentorship to women entrepreneurs to grow their businesses and improve their families' well-being.",
+      "img": "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=1400&q=80",
+      "impact": "350 women entrepreneurs",
+      "year": "2021\u2013Present",
+      "gallery": [
+        "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=700&q=80",
+        "https://images.unsplash.com/photo-1529154036614-a60975f5c760?w=700&q=80",
+        "https://images.unsplash.com/photo-1607748851687-ba9a10438621?w=700&q=80"
+      ],
+      "stats": [
+        {
+          "value": "350",
+          "label": "Women Supported"
+        },
+        {
+          "value": "3x",
+          "label": "Average Revenue Increase"
+        },
+        {
+          "value": "4",
+          "label": "Cooperative Cohorts"
+        },
+        {
+          "value": "95%",
+          "label": "Loan Repayment Rate"
+        }
+      ],
+      "lead": "Dr. Amina Uwimana",
+      "leadRole": "Executive Director",
+      "body": "\n      <p>RAPP's Women's Economic Empowerment programme was launched in 2021 with a clear-eyed recognition that Rwanda's remarkable development story will remain incomplete unless women \u2014 who make up 52% of the population and shoulder a disproportionate share of both productive and reproductive labour \u2014 are at its centre. Since launch, the programme has supported 350 women entrepreneurs across Kigali and the Northern Province, with results that consistently exceed expectations.</p>\n\n      <h3>The Core Offer: Capital, Knowledge, and Community</h3>\n      <p>The programme's design rests on three interconnected pillars, each addressing a different barrier that keeps women-led micro-businesses from growing:</p>\n      <ul>\n        <li><strong>Micro-loans:</strong> Trust-based loans of 50,000\u2013200,000 RWF, repaid over 12 months, with a 95% repayment rate to date. Collateral is replaced by peer group accountability \u2014 members of the same cooperative cohort are each other's guarantors.</li>\n        <li><strong>Business training:</strong> An 8-month programme covering pricing and costing, record-keeping and financial management, digital payment tools and mobile banking, marketing and customer acquisition, and business planning for growth.</li>\n        <li><strong>Peer learning and mentorship:</strong> Monthly cooperative circles where members share challenges and solutions, combined with one-on-one mentorship from established Rwandan businesswomen who volunteer their time through RAPP's mentor network.</li>\n      </ul>\n\n      <h3>What the Numbers Show</h3>\n      <p>Across four cooperative cohorts totalling 350 women, average monthly household income has increased by 180% from programme entry to 12-month follow-up. Three cohort members have grown their businesses to a point where they employ at least one additional worker. One member is exporting handmade goods internationally. The 95% loan repayment rate \u2014 achieved without collateral, in a population that formal banks routinely decline to serve \u2014 demonstrates both the trustworthiness of participants and the power of peer accountability as a lending mechanism.</p>\n\n      <h3>Beyond Business: Social Transformation</h3>\n      <p>The programme's most profound impacts are sometimes the hardest to measure. Cohort members consistently report increases in confidence, in their voice within their households, and in their ability to make decisions about their own lives and their children's futures. Several cohorts have, spontaneously, established collective childcare arrangements, shared transport networks, and joint advocacy efforts on market conditions \u2014 social infrastructure that emerged from relationships the programme created but that RAPP did not design.</p>\n\n      <h3>Scaling the Model</h3>\n      <p>A fifth cooperative cohort is planned for Rubavu in mid-2025, and RAPP is in discussions with Rwanda's Ministry of Gender and Family Promotion about incorporating elements of the programme model \u2014 particularly the peer learning structure and trust-based lending mechanism \u2014 into national women's empowerment policy. The vision is a Rwanda where every woman entrepreneur, regardless of her location or starting point, has access to the capital, knowledge, and community she needs to build something lasting.</p>\n    ",
+      "relatedIds": [
+        1,
+        2
+      ]
+    }
+  ]
+}

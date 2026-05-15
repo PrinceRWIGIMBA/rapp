@@ -1,0 +1,246 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import contactData from '../data/contact.json';
+
+const { hero, offices, topics } = contactData;
+---
+
+<Base title="Contact Us" description="Get in touch with RAPP — we'd love to hear from you.">
+  <Nav />
+
+  <div class="page-hero" style={`background-image: url('${hero.image}')`}>
+    <div class="container">
+      <span class="section-label fade-up">{hero.label}</span>
+      <h1 class="fade-up-2">{hero.title}</h1>
+      <p class="fade-up-3">Whether you want to partner, volunteer, donate, or simply learn more — reach out and our team will respond within 48 hours.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container contact-layout">
+
+      <!-- Form -->
+      <div class="contact-form-wrap">
+        <h2>Send Us a Message</h2>
+        <div class="divider"></div>
+
+        <form class="contact-form" id="contact-form">
+          <div class="form-row">
+            <div class="form-field">
+              <label for="fname">First Name *</label>
+              <input type="text" id="fname" required placeholder="Jane" />
+            </div>
+            <div class="form-field">
+              <label for="lname">Last Name *</label>
+              <input type="text" id="lname" required placeholder="Doe" />
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" required placeholder="jane@example.com" />
+          </div>
+          <div class="form-field">
+            <label for="org">Organization (optional)</label>
+            <input type="text" id="org" placeholder="Your organization" />
+          </div>
+          <div class="form-field">
+            <label for="topic">Topic *</label>
+            <select id="topic" required>
+              <option value="">Select a topic…</option>
+              {topics.map(t => <option>{t}</option>)}
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="message">Message *</label>
+            <textarea id="message" rows="5" required placeholder="Tell us how we can help…"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;padding:1rem;">
+            Send Message
+          </button>
+          <div id="form-success" class="success-msg" style="display:none;">
+            ✅ Thank you! We've received your message and will respond within 48 hours.
+          </div>
+        </form>
+      </div>
+
+      <!-- Info sidebar -->
+      <div class="contact-sidebar">
+        {offices.map(o => (
+          <div class="office-card">
+            <h3>{o.name}</h3>
+            <ul class="office-details">
+              <li><span>📍</span> {o.address}</li>
+              <li><span>📞</span> <a href={`tel:${o.phone.replace(/\s/g,'')}`}>{o.phone}</a></li>
+              <li><span>✉️</span> <a href={`mailto:${o.email}`}>{o.email}</a></li>
+              <li><span>🕒</span> {o.hours}</li>
+            </ul>
+          </div>
+        ))}
+
+        <div class="social-card">
+          <h3>Follow Us</h3>
+          <div class="social-links">
+            <a href="#" class="social-link">
+              <span>f</span> Facebook
+            </a>
+            <a href="#" class="social-link">
+              <span>𝕏</span> Twitter / X
+            </a>
+            <a href="#" class="social-link">
+              <span>in</span> LinkedIn
+            </a>
+            <a href="#" class="social-link">
+              <span>▶</span> YouTube
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Map placeholder -->
+  <section class="section bg-sand" style="padding-top:0;">
+    <div class="container">
+      <div class="map-placeholder">
+        <div class="map-inner">
+          <span>🗺️</span>
+          <p>Kigali, Rwanda</p>
+          <a href="https://maps.google.com/?q=Kigali,Rwanda" target="_blank" rel="noopener" class="btn btn-outline" style="margin-top:1rem;">Open in Google Maps</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Base>
+
+<style>
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+.contact-form-wrap {
+  background: #fff;
+  padding: 2.5rem;
+  border-radius: calc(var(--r)*3);
+  box-shadow: 0 4px 32px rgba(59,42,26,.08);
+}
+.contact-form-wrap h2 { font-size: 1.75rem; }
+
+.contact-form { display: flex; flex-direction: column; gap: 0; }
+.form-field { margin-bottom: 1.1rem; }
+.form-field label { display: block; font-size: .85rem; font-weight: 600; margin-bottom: .4rem; color: var(--earth); }
+.form-field input,
+.form-field select,
+.form-field textarea {
+  width: 100%;
+  padding: .72rem 1rem;
+  border: 1.5px solid rgba(59,42,26,.2);
+  border-radius: var(--r);
+  font-family: var(--font-body);
+  font-size: .95rem;
+  background: transparent;
+  outline: none;
+  transition: border-color .2s;
+  resize: vertical;
+}
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus { border-color: var(--clay); }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+.success-msg {
+  margin-top: 1rem;
+  background: rgba(16,185,129,.1);
+  color: #065f46;
+  padding: 1rem 1.25rem;
+  border-radius: var(--r);
+  font-weight: 500;
+}
+
+.contact-sidebar { display: flex; flex-direction: column; gap: 1.5rem; }
+.office-card {
+  background: #fff;
+  padding: 1.75rem;
+  border-radius: calc(var(--r)*2);
+  box-shadow: 0 2px 12px rgba(59,42,26,.07);
+}
+.office-card h3 { font-size: 1.05rem; margin-bottom: 1rem; }
+.office-details {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: .65rem;
+  font-size: .88rem;
+}
+.office-details li { display: flex; gap: .6rem; align-items: flex-start; }
+.office-details span { flex-shrink: 0; }
+.office-details a { color: var(--clay); }
+.office-details a:hover { text-decoration: underline; }
+
+.social-card {
+  background: var(--earth);
+  padding: 1.75rem;
+  border-radius: calc(var(--r)*2);
+}
+.social-card h3 { color: var(--sand); font-size: 1.05rem; margin-bottom: 1rem; }
+.social-links { display: flex; flex-direction: column; gap: .6rem; }
+.social-link {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  color: rgba(245,239,230,.75);
+  font-size: .9rem;
+  transition: color .2s;
+}
+.social-link span {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  border: 1px solid rgba(245,239,230,.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: .85rem;
+  font-weight: 700;
+  color: rgba(245,239,230,.7);
+}
+.social-link:hover { color: var(--gold); }
+.social-link:hover span { border-color: var(--gold); color: var(--gold); }
+
+.map-placeholder {
+  height: 320px;
+  background: linear-gradient(135deg, var(--earth) 0%, #2d1f0f 100%);
+  border-radius: calc(var(--r)*3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+.map-inner {
+  text-align: center;
+  z-index: 1;
+}
+.map-inner span { font-size: 4rem; display: block; margin-bottom: .5rem; }
+.map-inner p { color: var(--sand); font-size: 1.2rem; font-family: var(--font-display); font-weight: 700; }
+
+@media (max-width: 900px) {
+  .contact-layout { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+}
+</style>
+
+<script>
+document.getElementById('contact-form')?.addEventListener('submit', (e) => {
+  e.preventDefault();
+  document.getElementById('form-success')!.style.display = 'block';
+  (e.target as HTMLFormElement).reset();
+  setTimeout(() => {
+    document.getElementById('form-success')!.style.display = 'none';
+  }, 6000);
+});
+</script>
