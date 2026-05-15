@@ -1,5 +1,8 @@
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  site: 'https://your-domain.com',
+  server: {
+    host: '127.0.0.1',
+    port: 3000
+  }
 });
