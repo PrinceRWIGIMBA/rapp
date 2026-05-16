@@ -1,46 +1,56 @@
 {
   "hero": {
-    "label": "Peacebuilding · Education · Development",
-    "title": "Building Peace, Progress & Prosperity in Rwanda",
-    "subtitle": "RAPP works with communities, governments, and partners to create a more peaceful, educated, and sustainably developed Rwanda — one community at a time.",
+    "label": "SRHR · HIV/AIDS Awareness · Community Empowerment",
+    "title": "Creating Awareness, Reducing Stigma & Empowering Communities",
+    "subtitle": "RAPP is a Kigali-based NGO working with urban and rural communities to educate youth on Sexual and Reproductive Health, prevent HIV/AIDS through theater, and support income-generating activities for vulnerable people.",
     "image": "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=1400&q=80",
     "cta1Text": "Explore Our Work",
-    "cta1Link": "/projects",
-    "cta2Text": "Donate Now",
-    "cta2Link": "/donate"
+    "cta1Link": "/projects"
   },
   "stats": [
-    { "number": "15+", "label": "Active Projects" },
-    { "number": "50K+", "label": "Lives Impacted" },
-    { "number": "30+", "label": "Partner Organizations" },
-    { "number": "10+", "label": "Years of Service" }
+    {
+      "number": "2003",
+      "label": "Founded in Kigali"
+    },
+    {
+      "number": "43,200+",
+      "label": "Individuals Reached"
+    },
+    {
+      "number": "1,200+",
+      "label": "Women Empowered"
+    },
+    {
+      "number": "29",
+      "label": "Cooperatives Supported"
+    }
   ],
   "features": [
     {
-      "icon": "🕊️",
-      "title": "Peacebuilding",
-      "desc": "Fostering dialogue, reconciliation, and lasting peace across communities in Rwanda."
+      "icon": "🎭",
+      "title": "Theater & Awareness",
+      "desc": "Using theater, songs, poetry, and creative media to spread messages about HIV/AIDS prevention and Sexual and Reproductive Health Rights."
     },
     {
-      "icon": "📚",
-      "title": "Education",
-      "desc": "Empowering youth through quality education programs and vocational training."
+      "icon": "🏥",
+      "title": "Health Outreach",
+      "desc": "Community theater troupes reach thousands with messages on HIV prevention, family planning, and reducing stigma against people living with HIV."
     },
     {
-      "icon": "🌱",
-      "title": "Sustainable Development",
-      "desc": "Driving eco-friendly initiatives that create lasting economic opportunities."
+      "icon": "💼",
+      "title": "Income Generating Activities",
+      "desc": "Supporting vulnerable and low-income people — especially those infected or affected by HIV — through business cooperatives and self-help groups."
     },
     {
       "icon": "🤝",
-      "title": "Community Empowerment",
-      "desc": "Building local capacity through grassroots programs and community leadership."
+      "title": "Community Partnerships",
+      "desc": "Collaborating with government, national and international NGOs to implement donor-funded projects across urban and rural Rwanda."
     }
   ],
   "missionSection": {
-    "label": "Why We Exist",
-    "title": "Peace Is the Foundation of All Progress",
-    "body": "At RAPP, we believe that no community can thrive without peace. Our programmes are designed to address the root causes of conflict, build bridges between communities, and create the conditions for sustainable human development.",
+    "label": "Who We Are",
+    "title": "Awareness, Empowerment & Dignity for Every Rwandan",
+    "body": "RAPP was founded in 2003 in Kigali as a local NGO implementing projects from international donors. We work across urban and rural districts, recognizing the link between HIV prevention, stigma-reduction, and taboos around sexual relations. Through theater and creative outreach, we educate young people on SRHR and HIV/AIDS — while also reducing poverty by supporting income-generating cooperatives run by local self-help groups.",
     "image": "https://images.unsplash.com/photo-1593113598332-cd288d649433?w=700&q=80",
     "ctaText": "Learn About Our Approach",
     "ctaLink": "/about"
@@ -48,6 +58,10 @@
   "latestNews": {
     "label": "Stories from the Field",
     "title": "Latest News & Updates",
-    "slugs": ["youth-center-musanze", "peace-summit-2025", "un-habitat-partnership"]
+    "slugs": [
+      "welcome-to-rapp",
+      "rwanda-knits-in-progress",
+      "income-generating-activities-nyamata"
+    ]
   }
 }

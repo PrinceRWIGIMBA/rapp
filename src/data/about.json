@@ -2,7 +2,7 @@
   "hero": {
     "label": "Who We Are",
     "title": "About RAPP",
-    "subtitle": "We are Rwandans Allied for Peace and Progress — a movement rooted in hope, driven by community, and committed to lasting change.",
+    "subtitle": "Rwandans Allied for Peace and Progress — a local NGO founded in Kigali in 2003, creating awareness, reducing HIV/AIDS stigma, and empowering communities through theater and income-generating activities.",
     "image": "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=1400&q=80"
   },
   "story": {
@@ -15,20 +15,62 @@
     "image": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=700&q=80"
   },
   "values": [
-    { "icon": "🕊️", "title": "Peace First", "desc": "We believe dialogue and reconciliation are the foundation of all sustainable progress." },
-    { "icon": "🤲", "title": "Community-Led", "desc": "Every programme is designed with — not for — the communities we serve." },
-    { "icon": "🌍", "title": "Pan-African Spirit", "desc": "We draw on Rwanda's rich heritage while embracing our shared African identity." },
-    { "icon": "📊", "title": "Accountability", "desc": "We hold ourselves to the highest standards of transparency and results-based management." },
-    { "icon": "♻️", "title": "Sustainability", "desc": "We build programmes that communities can own and sustain long after our involvement." },
-    { "icon": "⚖️", "title": "Equity & Inclusion", "desc": "We prioritize the most marginalized — women, youth, and rural communities." }
+    {
+      "icon": "🎭",
+      "title": "Theater for Change",
+      "desc": "We use creative arts — theater, song, poetry — as powerful tools to educate communities and shift attitudes on HIV/AIDS and sexual health."
+    },
+    {
+      "icon": "🏥",
+      "title": "Health & Dignity",
+      "desc": "We recognize the link between HIV prevention, stigma-reduction, and taboos around sexual relations, and work to address all three."
+    },
+    {
+      "icon": "🤝",
+      "title": "Community-Led",
+      "desc": "Every programme is designed with — not for — the communities we serve, through self-help groups and local cooperatives."
+    },
+    {
+      "icon": "💼",
+      "title": "Economic Empowerment",
+      "desc": "We reduce poverty by using our purchasing power to initiate and support income-generating activities (IGAs) run by local self-help groups."
+    },
+    {
+      "icon": "⚖️",
+      "title": "Equity & Inclusion",
+      "desc": "We prioritize the most vulnerable — people living with HIV, women, youth, and low-income communities in urban and rural Rwanda."
+    },
+    {
+      "icon": "📊",
+      "title": "Accountability",
+      "desc": "We implement projects from international donors with full transparency, collaborating with government and national and international NGOs."
+    }
   ],
   "milestones": [
-    { "year": "2014", "event": "RAPP founded in Kigali by a coalition of peacebuilders and development practitioners." },
-    { "year": "2016", "event": "Launched first reconciliation dialogue programme, reaching 20 communities." },
-    { "year": "2018", "event": "Received first international grant from the EU to expand to the Northern Province." },
-    { "year": "2020", "event": "Scaled Youth Leadership Academy to three provinces, training 300+ youth annually." },
-    { "year": "2022", "event": "Celebrated impacting over 40,000 lives and partnering with 25+ organizations." },
-    { "year": "2024", "event": "Launched the Reforestation Rwanda campaign with a goal of 1 million trees by 2027." }
+    {
+      "year": "2003",
+      "event": "RAPP founded in Kigali as a local NGO, beginning work on HIV/AIDS awareness and SRHR education for youth through theater."
+    },
+    {
+      "year": "2004",
+      "event": "Launched the In School Project — theatre competitions and HIV/AIDS education for school youth clubs nationwide."
+    },
+    {
+      "year": "2009",
+      "event": "Started the Voices of Health Project, funded by naction medeor (Germany), reaching communities through interactive theater troupes."
+    },
+    {
+      "year": "2010",
+      "event": "Rwanda Knits expanded to 29 cooperatives, with USAID support enabling over 1,200 women to earn a sustainable income through knitting."
+    },
+    {
+      "year": "2011",
+      "event": "The Ingenzi Knit Union (IKU) formed as the country's first secondary artisan cooperative union, partnering with Indego Africa for market access."
+    },
+    {
+      "year": "2013",
+      "event": "Completed the BCSM project (USAID-funded), with 120+ peer educators trained and the Global Fund R6 project for vulnerable cooperatives."
+    }
   ],
   "team": [
     {

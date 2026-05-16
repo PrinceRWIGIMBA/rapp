@@ -10,35 +10,122 @@
       "level": "Strategic Partners",
       "color": "var(--gold)",
       "partners": [
-        { "name": "United Nations Rwanda", "type": "International", "desc": "Supporting peacebuilding and SDG implementation." },
-        { "name": "European Union Delegation", "type": "Government", "desc": "Funding democratic governance and rural development." },
-        { "name": "Rwanda Development Board", "type": "Government", "desc": "Aligning programmes with national development priorities." },
-        { "name": "USAID Rwanda", "type": "International", "desc": "Co-funding health and education programmes." }
+        {
+          "name": "United Nations Rwanda",
+          "type": "International",
+          "desc": "Supporting peacebuilding and SDG implementation."
+        },
+        {
+          "name": "European Union Delegation",
+          "type": "Government",
+          "desc": "Funding democratic governance and rural development."
+        },
+        {
+          "name": "Rwanda Development Board",
+          "type": "Government",
+          "desc": "Aligning programmes with national development priorities."
+        },
+        {
+          "name": "USAID Rwanda",
+          "type": "International",
+          "desc": "Co-funding health and education programmes."
+        }
       ]
     },
     {
       "level": "Implementing Partners",
       "color": "var(--sage)",
       "partners": [
-        { "name": "Imbuto Foundation", "type": "NGO", "desc": "Joint youth and women empowerment initiatives." },
-        { "name": "Africa Governance Institute", "type": "Think Tank", "desc": "Policy research and governance training." },
-        { "name": "Rwanda Red Cross", "type": "NGO", "desc": "Community health and emergency response." },
-        { "name": "World Vision Rwanda", "type": "NGO", "desc": "Child welfare and community resilience." }
+        {
+          "name": "Imbuto Foundation",
+          "type": "NGO",
+          "desc": "Joint youth and women empowerment initiatives."
+        },
+        {
+          "name": "Africa Governance Institute",
+          "type": "Think Tank",
+          "desc": "Policy research and governance training."
+        },
+        {
+          "name": "Rwanda Red Cross",
+          "type": "NGO",
+          "desc": "Community health and emergency response."
+        },
+        {
+          "name": "World Vision Rwanda",
+          "type": "NGO",
+          "desc": "Child welfare and community resilience."
+        }
       ]
     },
     {
       "level": "Academic & Research Partners",
       "color": "var(--clay)",
       "partners": [
-        { "name": "University of Rwanda", "type": "Academia", "desc": "Research on conflict resolution and sustainable development." },
-        { "name": "Carnegie Mellon University Africa", "type": "Academia", "desc": "Technology and innovation for social impact." }
+        {
+          "name": "University of Rwanda",
+          "type": "Academia",
+          "desc": "Research on conflict resolution and sustainable development."
+        },
+        {
+          "name": "Carnegie Mellon University Africa",
+          "type": "Academia",
+          "desc": "Technology and innovation for social impact."
+        }
+      ]
+    },
+    {
+      "level": "Programme Partners",
+      "color": "var(--teal)",
+      "partners": [
+        {
+          "name": "Indego Africa",
+          "type": "NGO",
+          "desc": "Empowers women to bring their families out of poverty through trade partnerships with artisans in Rwanda. Sells contemporary accessories and home décor to retailers in the United States, returning all profits to training in financial management, technology, and literacy."
+        },
+        {
+          "name": "Root Capital",
+          "type": "Finance",
+          "desc": "Provides a voice for small grassroots farmers through a lending model for rural communities in Africa and Latin America who are unable to find help otherwise, enabling them to lead themselves out of poverty."
+        },
+        {
+          "name": "Aid to Artisans",
+          "type": "NGO",
+          "desc": "Provides help to artisan groups in at-risk communities worldwide, mentoring local groups in three areas: business skills training, market access, and product development."
+        },
+        {
+          "name": "CHF International",
+          "type": "NGO",
+          "desc": "A non-profit working through USAID that helps establish affordable housing internationally and works in Rwanda on HIV prevention and education, among other community development activities."
+        },
+        {
+          "name": "Global Youth Connect",
+          "type": "International",
+          "desc": "A US-based non-profit whose mission is to empower youth to advance human rights. Sends delegations from North America to Rwanda each year to partner with local Rwandan youth and NGOs, working closely with RAPP."
+        }
       ]
     }
   ],
   "howToPartner": [
-    { "icon": "💼", "title": "Corporate Partnership", "desc": "Align your CSR goals with impactful community programmes in Rwanda." },
-    { "icon": "🏛️", "title": "Government Collaboration", "desc": "Co-design policies and programmes that advance peace and progress." },
-    { "icon": "🎓", "title": "Academic Partnership", "desc": "Conduct joint research and share knowledge for evidence-based programming." },
-    { "icon": "🌐", "title": "NGO Alliance", "desc": "Pool resources and expertise to maximize collective impact." }
+    {
+      "icon": "💼",
+      "title": "Corporate Partnership",
+      "desc": "Align your CSR goals with impactful community programmes in Rwanda."
+    },
+    {
+      "icon": "🏛️",
+      "title": "Government Collaboration",
+      "desc": "Co-design policies and programmes that advance peace and progress."
+    },
+    {
+      "icon": "🎓",
+      "title": "Academic Partnership",
+      "desc": "Conduct joint research and share knowledge for evidence-based programming."
+    },
+    {
+      "icon": "🌐",
+      "title": "NGO Alliance",
+      "desc": "Pool resources and expertise to maximize collective impact."
+    }
   ]
 }

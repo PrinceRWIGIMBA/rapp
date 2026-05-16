@@ -1,22 +1,67 @@
 {
   "hero": {
     "label": "Make a Difference",
-    "title": "Donate Now",
-    "subtitle": "Every dollar you give directly funds peacebuilding, education, and community development across Rwanda.",
+    "title": "Donate to RAPP",
+    "subtitle": "Your generosity directly funds peacebuilding, education, and community development across Rwanda.",
     "image": "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=1400&q=80"
   },
-  "amounts": [10, 25, 50, 100, 250, 500],
+  "poBox": {
+    "heading": "How to Donate",
+    "message": "Please send your contributions to:",
+    "address": "PO Box 4637\nKigali, Rwanda"
+  },
   "impacts": [
-    { "amount": "$10", "icon": "📚", "desc": "Provides school supplies for one child for a month." },
-    { "amount": "$25", "icon": "🌱", "desc": "Plants 25 trees and supports a local reforestation worker." },
-    { "amount": "$50", "icon": "💊", "desc": "Covers a community health visit for five families." },
-    { "amount": "$100", "icon": "🤝", "desc": "Funds one day of a peacebuilding dialogue session." },
-    { "amount": "$250", "icon": "🎓", "desc": "Sponsors one month of youth leadership training." },
-    { "amount": "$500", "icon": "🏡", "desc": "Supports a women's cooperative for a full quarter." }
+    {
+      "amount": "$10",
+      "icon": "\ud83d\udcda",
+      "desc": "Provides school supplies for one child for a month."
+    },
+    {
+      "amount": "$25",
+      "icon": "\ud83c\udf31",
+      "desc": "Plants 25 trees and supports a local reforestation worker."
+    },
+    {
+      "amount": "$50",
+      "icon": "\ud83d\udc8a",
+      "desc": "Covers a community health visit for five families."
+    },
+    {
+      "amount": "$100",
+      "icon": "\ud83e\udd1d",
+      "desc": "Funds one day of a peacebuilding dialogue session."
+    },
+    {
+      "amount": "$250",
+      "icon": "\ud83c\udf93",
+      "desc": "Sponsors one month of youth leadership training."
+    },
+    {
+      "amount": "$500",
+      "icon": "\ud83c\udfe1",
+      "desc": "Supports a women's cooperative for a full quarter."
+    }
   ],
-  "trustPoints": [
-    { "icon": "🔒", "title": "Secure & Safe", "desc": "All transactions are encrypted and processed securely." },
-    { "icon": "📋", "title": "Fully Transparent", "desc": "Annual reports and financial statements available on request." },
-    { "icon": "🌍", "title": "100% to Programmes", "desc": "Administrative costs are covered by dedicated operational grants." }
+  "otherWays": [
+    {
+      "icon": "\ud83c\udfe6",
+      "title": "Bank Transfer",
+      "desc": "Contact us for direct bank transfer details in USD, EUR, or RWF."
+    },
+    {
+      "icon": "\ud83d\udcf1",
+      "title": "Mobile Money",
+      "desc": "Donate via MTN Mobile Money or Airtel Money from anywhere in Rwanda."
+    },
+    {
+      "icon": "\ud83e\udd1d",
+      "title": "In-Kind Donations",
+      "desc": "Donate goods, equipment, expertise, or volunteer your time and skills."
+    },
+    {
+      "icon": "\ud83c\udfe2",
+      "title": "Corporate Giving",
+      "desc": "Set up a corporate matching programme or CSR partnership with RAPP."
+    }
   ]
 }

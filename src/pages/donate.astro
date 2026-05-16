@@ -4,152 +4,138 @@ import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import donateData from '../data/donate.json';
 
-const { hero, amounts, impacts, trustPoints } = donateData;
+const { hero, poBox, impacts, otherWays } = donateData;
 ---
 
-<Base title="Donate Now" description="Support RAPP's mission — your donation builds peace and progress in Rwanda.">
+<Base title="Donate to RAPP" description="Support RAPP's mission — your contributions fund HIV/AIDS awareness, SRHR education, and income-generating cooperatives across Rwanda.">
   <Nav />
 
+  <!-- Hero -->
   <div class="page-hero" style={`background-image: url('${hero.image}')`}>
-    <div class="container">
+    <div class="hero-overlay"></div>
+    <div class="container hero-inner">
       <span class="section-label fade-up">{hero.label}</span>
       <h1 class="fade-up-2">{hero.title}</h1>
       <p class="fade-up-3">{hero.subtitle}</p>
     </div>
   </div>
 
-  <!-- Main donate section -->
+  <!-- How to Donate — main section -->
   <section class="section">
-    <div class="container donate-layout">
+    <div class="container donate-grid">
 
-      <!-- Form -->
-      <div class="donate-form-wrap">
-        <h2>Make Your Gift</h2>
-        <div class="divider"></div>
+      <!-- Left: PO Box + other ways -->
+      <div class="donate-left">
 
-        <!-- Frequency -->
-        <div class="freq-toggle">
-          <button class="freq-btn active" id="btn-once">Give Once</button>
-          <button class="freq-btn" id="btn-monthly">Monthly</button>
-        </div>
+        <!-- PO Box card — the star -->
+        <div class="pobox-card">
+          <div class="pobox-top">
+            <div class="envelope-wrap">
+              <div class="envelope">✉️</div>
+            </div>
+            <div class="pobox-headline">
+              <h2>{poBox.heading}</h2>
+              <p class="pobox-sub">{poBox.message}</p>
+            </div>
+          </div>
 
-        <!-- Amount selector -->
-        <div class="amount-grid">
-          {amounts.map(a => (
-            <button class="amount-btn" data-amount={a}>${a}</button>
-          ))}
-        </div>
+          <div class="address-block">
+            <div class="address-label">MAILING ADDRESS</div>
+            <div class="address-lines">
+              {poBox.address.split('\n').map((line: string) => (
+                <span class="address-line">{line}</span>
+              ))}
+            </div>
+          </div>
 
-        <!-- Custom amount -->
-        <div class="custom-amount-wrap">
-          <label for="custom">Custom Amount (USD)</label>
-          <div class="custom-input-wrap">
-            <span class="dollar">$</span>
-            <input type="number" id="custom" placeholder="Other amount" min="1" />
+          <div class="pobox-note">
+            <span class="note-icon">💛</span>
+            <p>Your mailed contribution goes directly to our programmes. Every amount — large or small — makes a real difference to the communities we serve.</p>
+          </div>
+
+          <!-- Trust badges -->
+          <div class="trust-row">
+            <div class="trust-badge">
+              <span>✅</span>
+              <span>Registered NGO</span>
+            </div>
+            <div class="trust-badge">
+              <span>📋</span>
+              <span>100% to Programmes</span>
+            </div>
+            <div class="trust-badge">
+              <span>🌍</span>
+              <span>Since 2003</span>
+            </div>
           </div>
         </div>
 
-        <!-- Project allocation -->
-        <div class="form-field">
-          <label for="project">Allocate to (optional)</label>
-          <select id="project">
-            <option value="">Where it's needed most</option>
-            <option>Youth Leadership Academy</option>
-            <option>Dialogue for Reconciliation</option>
-            <option>Hillside Farmers Cooperative</option>
-            <option>Community Health Network</option>
-            <option>Reforestation Rwanda</option>
-            <option>Women's Economic Empowerment</option>
-          </select>
-        </div>
-
-        <!-- Personal info -->
-        <div class="form-row">
-          <div class="form-field">
-            <label for="fname">First Name</label>
-            <input type="text" id="fname" placeholder="Jane" />
-          </div>
-          <div class="form-field">
-            <label for="lname">Last Name</label>
-            <input type="text" id="lname" placeholder="Doe" />
+        <!-- Other Ways -->
+        <div class="other-ways-wrap">
+          <h3 class="ways-title">
+            <span class="title-line"></span>
+            Other Ways to Give
+            <span class="title-line"></span>
+          </h3>
+          <div class="ways-grid">
+            {otherWays.map((w: any) => (
+              <div class="way-card">
+                <div class="way-icon">{w.icon}</div>
+                <h4>{w.title}</h4>
+                <p>{w.desc}</p>
+                <a href="/contact" class="way-link">Ask Us How →</a>
+              </div>
+            ))}
           </div>
         </div>
-        <div class="form-field">
-          <label for="email">Email Address</label>
-          <input type="email" id="email" placeholder="jane@example.com" />
-        </div>
-        <div class="form-field">
-          <label><input type="checkbox" /> I'd like to make this donation anonymous</label>
-        </div>
-
-        <button class="btn btn-primary donate-submit">
-          🔒 Donate Securely
-        </button>
-        <p class="secure-note">Secured by SSL. RAPP is a registered non-profit. All donations are tax-deductible.</p>
       </div>
 
-      <!-- Impact sidebar -->
-      <div class="impact-sidebar">
-        <h3>Your Impact</h3>
-        <div class="divider"></div>
+      <!-- Right: Impact sidebar -->
+      <aside class="impact-sidebar">
+        <div class="impact-header">
+          <h3>Your Gift in Action</h3>
+          <p>See how every contribution changes lives across Rwanda</p>
+        </div>
         <div class="impact-list">
-          {impacts.map(i => (
+          {impacts.map((i: any) => (
             <div class="impact-item">
-              <span class="impact-emoji">{i.icon}</span>
-              <div>
-                <strong>{i.amount}</strong>
+              <div class="impact-icon-wrap">
+                <span class="impact-icon">{i.icon}</span>
+              </div>
+              <div class="impact-text">
+                <strong class="impact-amount">{i.amount}</strong>
                 <p>{i.desc}</p>
               </div>
             </div>
           ))}
         </div>
 
-        <div class="trust-block">
-          <p style="font-weight:600;margin-bottom:.75rem;">Why Give to RAPP?</p>
-          <ul class="trust-list">
-            <li>✅ 100% of donations go to programmes</li>
-            <li>✅ Transparent annual reporting</li>
-            <li>✅ Registered NGO in Rwanda</li>
-            <li>✅ Real-time impact updates</li>
-          </ul>
+        <!-- Quote -->
+        <div class="quote-card">
+          <div class="quote-mark">"</div>
+          <p>RAPP uses theater to educate youth about HIV/AIDS prevention and empowers vulnerable communities to build sustainable livelihoods.</p>
+          <div class="quote-author">— RAPP Team, Kigali</div>
         </div>
-      </div>
 
+        <!-- Contact nudge -->
+        <div class="contact-nudge">
+          <p>Questions about donating?</p>
+          <a href="/contact" class="btn btn-outline nudge-btn">Contact Us</a>
+        </div>
+      </aside>
     </div>
   </section>
 
-  <!-- Other ways to give -->
-  <section class="section bg-sand">
-    <div class="container" style="text-align:center;">
-      <span class="section-label">Other Ways to Give</span>
-      <h2>More Ways to Support RAPP</h2>
-      <div class="divider" style="margin:1rem auto;"></div>
-      <div class="ways-grid">
-        <div class="way-card">
-          <div class="way-icon">🏦</div>
-          <h3>Bank Transfer</h3>
-          <p>Contact us for direct bank transfer details in USD, EUR, or RWF.</p>
-          <a href="/contact" class="btn btn-outline" style="margin-top:1rem;">Get Details</a>
-        </div>
-        <div class="way-card">
-          <div class="way-icon">📱</div>
-          <h3>Mobile Money</h3>
-          <p>Donate via MTN Mobile Money or Airtel Money from anywhere in Rwanda.</p>
-          <a href="/contact" class="btn btn-outline" style="margin-top:1rem;">Learn How</a>
-        </div>
-        <div class="way-card">
-          <div class="way-icon">🤝</div>
-          <h3>In-Kind Donations</h3>
-          <p>Donate goods, equipment, expertise, or volunteer your time and skills.</p>
-          <a href="/contact" class="btn btn-outline" style="margin-top:1rem;">Contact Us</a>
-        </div>
-        <div class="way-card">
-          <div class="way-icon">🏢</div>
-          <h3>Corporate Giving</h3>
-          <p>Set up a corporate matching programme or CSR partnership with RAPP.</p>
-          <a href="/contact" class="btn btn-outline" style="margin-top:1rem;">Partner With Us</a>
-        </div>
-      </div>
+  <!-- Bottom banner -->
+  <section class="cta-section">
+    <div class="cta-bg"></div>
+    <div class="container cta-inner">
+      <span class="section-label" style="color:var(--gold)">Together We Can</span>
+      <h2 style="color:#fff;max-width:640px;margin:.5rem auto 0;">Every Contribution Reaches a Community That Needs It</h2>
+      <p style="color:rgba(245,239,230,.8);max-width:480px;margin:1rem auto 0;">
+        Mail your contribution to PO Box 4637, Kigali — or reach out and we'll help you find the best way to give.
+      </p>
+      <a href="/contact" class="btn btn-primary" style="margin-top:2rem;display:inline-block;">Get in Touch</a>
     </div>
   </section>
 
@@ -157,214 +143,292 @@ const { hero, amounts, impacts, trustPoints } = donateData;
 </Base>
 
 <style>
-.donate-layout {
+/* ── Hero ── */
+.page-hero {
+  position: relative;
+  min-height: 52vh;
+  display: flex;
+  align-items: flex-end;
+  background-size: cover;
+  background-position: center 40%;
+  padding-bottom: 4rem;
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(13,43,69,.35) 0%, rgba(13,43,69,.72) 100%);
+}
+.hero-inner {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+}
+.hero-inner h1 { color: #fff; font-size: clamp(2rem, 5vw, 3.2rem); margin-top: .5rem; }
+.hero-inner p  { color: rgba(255,255,255,.88); font-size: 1.1rem; max-width: 560px; margin-top: .75rem; }
+
+/* ── Layout ── */
+.donate-grid {
   display: grid;
-  grid-template-columns: 1.5fr 1fr;
-  gap: 4rem;
+  grid-template-columns: 1.45fr 1fr;
+  gap: 3.5rem;
   align-items: start;
 }
-.donate-form-wrap {
+.donate-left { display: flex; flex-direction: column; gap: 3rem; }
+
+/* ── PO Box Card ── */
+.pobox-card {
   background: #fff;
-  padding: 2.5rem;
   border-radius: calc(var(--r)*3);
-  box-shadow: 0 4px 32px rgba(59,42,26,.08);
+  box-shadow: 0 8px 48px rgba(59,42,26,.1);
+  overflow: hidden;
+  border: 1px solid rgba(59,42,26,.07);
 }
-.donate-form-wrap h2 { font-size: 1.75rem; }
-
-.freq-toggle {
-  display: flex;
-  background: var(--sand);
-  border-radius: 999px;
-  padding: 4px;
-  margin: 1.5rem 0;
-  width: fit-content;
-}
-.freq-btn {
-  padding: .5rem 1.5rem;
-  border-radius: 999px;
-  border: none;
-  background: transparent;
-  font-family: var(--font-body);
-  font-weight: 600;
-  font-size: .9rem;
-  cursor: pointer;
-  transition: all .2s;
-  color: var(--earth);
-}
-.freq-btn.active {
-  background: var(--clay);
-  color: #fff;
-  box-shadow: 0 4px 12px rgba(200,64,47,.25);
-}
-
-.amount-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: .75rem;
-  margin-bottom: 1.25rem;
-}
-.amount-btn {
-  padding: .75rem;
-  border: 2px solid rgba(59,42,26,.15);
-  border-radius: var(--r);
-  background: transparent;
-  font-family: var(--font-display);
-  font-size: 1.1rem;
-  font-weight: 700;
-  cursor: pointer;
-  transition: all .2s;
-  color: var(--earth);
-}
-.amount-btn:hover, .amount-btn.selected {
-  border-color: var(--clay);
-  background: rgba(200,64,47,.08);
-  color: var(--clay);
-}
-
-.custom-amount-wrap {
-  margin-bottom: 1.25rem;
-}
-.custom-amount-wrap label {
-  display: block;
-  font-size: .85rem;
-  font-weight: 600;
-  margin-bottom: .4rem;
-  color: var(--earth);
-}
-.custom-input-wrap {
+.pobox-top {
   display: flex;
   align-items: center;
-  border: 1.5px solid rgba(59,42,26,.2);
-  border-radius: var(--r);
-  overflow: hidden;
-  transition: border-color .2s;
-}
-.custom-input-wrap:focus-within { border-color: var(--clay); }
-.dollar {
-  padding: 0 .75rem;
-  font-weight: 700;
-  color: var(--muted);
-  font-size: 1.1rem;
-  background: var(--sand);
-  border-right: 1.5px solid rgba(59,42,26,.2);
-  line-height: 48px;
-}
-.custom-input-wrap input {
-  border: none;
-  padding: .75rem 1rem;
-  font-family: var(--font-body);
-  font-size: 1rem;
-  width: 100%;
-  background: transparent;
-  outline: none;
-}
-
-.form-field {
-  margin-bottom: 1.1rem;
-}
-.form-field label {
-  display: block;
-  font-size: .85rem;
-  font-weight: 600;
-  margin-bottom: .4rem;
-  color: var(--earth);
-}
-.form-field input[type="text"],
-.form-field input[type="email"],
-.form-field select {
-  width: 100%;
-  padding: .7rem 1rem;
-  border: 1.5px solid rgba(59,42,26,.2);
-  border-radius: var(--r);
-  font-family: var(--font-body);
-  font-size: .95rem;
-  background: transparent;
-  outline: none;
-  transition: border-color .2s;
-}
-.form-field input:focus, .form-field select:focus { border-color: var(--clay); }
-.form-field input[type="checkbox"] { margin-right: .5rem; cursor: pointer; }
-
-.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-
-.donate-submit {
-  width: 100%;
-  justify-content: center;
-  padding: 1rem;
-  font-size: 1rem;
-  margin-top: .5rem;
-}
-.secure-note {
-  font-size: .78rem;
-  text-align: center;
-  color: var(--muted);
-  margin-top: .75rem;
-  opacity: .85;
-}
-
-/* Sidebar */
-.impact-sidebar { position: sticky; top: calc(var(--nav-h) + 1.5rem); }
-.impact-sidebar h3 { font-size: 1.3rem; }
-.impact-list { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 1.5rem; }
-.impact-item { display: flex; gap: .75rem; align-items: flex-start; }
-.impact-emoji { font-size: 1.5rem; flex-shrink: 0; }
-.impact-item strong { color: var(--clay); display: block; margin-bottom: .2rem; }
-.impact-item p { font-size: .85rem; }
-.trust-block {
-  background: var(--sand);
-  padding: 1.25rem 1.5rem;
-  border-radius: var(--r);
-}
-.trust-list { list-style: none; display: flex; flex-direction: column; gap: .5rem; font-size: .88rem; }
-
-/* Ways to give */
-.ways-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
   gap: 1.5rem;
-  margin-top: 3rem;
+  padding: 2.25rem 2.25rem 0;
 }
-.way-card {
-  background: #fff;
-  padding: 2rem 1.5rem;
+.envelope-wrap {
+  flex-shrink: 0;
+  width: 72px; height: 72px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--clay), #e05a3a);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  box-shadow: 0 8px 24px rgba(200,64,47,.3);
+}
+.pobox-headline h2 {
+  font-size: 1.6rem;
+  margin: 0;
+}
+.pobox-sub {
+  color: var(--muted);
+  font-size: .93rem;
+  margin-top: .3rem;
+}
+
+.address-block {
+  margin: 2rem 2.25rem;
+  background: linear-gradient(135deg, var(--sand) 0%, #f0e8d8 100%);
   border-radius: calc(var(--r)*2);
-  box-shadow: 0 2px 12px rgba(59,42,26,.06);
+  padding: 1.75rem 2rem;
+  border-left: 4px solid var(--clay);
+  position: relative;
+  overflow: hidden;
+}
+.address-block::after {
+  content: '✉';
+  position: absolute;
+  right: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 4rem;
+  opacity: .07;
+}
+.address-label {
+  font-size: .65rem;
+  font-weight: 800;
+  letter-spacing: .14em;
+  color: var(--clay);
+  text-transform: uppercase;
+  margin-bottom: .75rem;
+}
+.address-lines {
+  display: flex;
+  flex-direction: column;
+  gap: .2rem;
+}
+.address-line {
+  font-family: var(--font-display);
+  font-size: 1.55rem;
+  font-weight: 900;
+  color: var(--night);
+  line-height: 1.2;
+  letter-spacing: .01em;
+}
+
+.pobox-note {
+  display: flex;
+  gap: .9rem;
+  align-items: flex-start;
+  padding: 0 2.25rem 1.75rem;
+}
+.note-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: .1rem; }
+.pobox-note p { font-size: .9rem; line-height: 1.65; color: var(--muted); }
+
+.trust-row {
+  display: flex;
+  justify-content: space-around;
+  background: var(--night);
+  padding: 1.1rem 1.5rem;
+}
+.trust-badge {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: .3rem;
+  color: rgba(245,239,230,.85);
+  font-size: .78rem;
+  font-weight: 600;
+  letter-spacing: .03em;
   text-align: center;
 }
-.way-icon { font-size: 2.5rem; margin-bottom: 1rem; }
-.way-card h3 { font-size: 1rem; margin-bottom: .5rem; }
-.way-card p  { font-size: .88rem; }
+.trust-badge span:first-child { font-size: 1.1rem; }
 
+/* ── Other Ways ── */
+.ways-title {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.15rem;
+  color: var(--muted);
+  font-weight: 700;
+  letter-spacing: .03em;
+  text-transform: uppercase;
+  font-size: .82rem;
+  margin-bottom: 1.25rem;
+}
+.title-line { flex: 1; height: 1px; background: rgba(59,42,26,.15); }
+.ways-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+.way-card {
+  background: #fff;
+  border: 1px solid rgba(59,42,26,.09);
+  border-radius: calc(var(--r)*2);
+  padding: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow .2s, transform .2s;
+}
+.way-card:hover {
+  box-shadow: 0 4px 20px rgba(59,42,26,.1);
+  transform: translateY(-2px);
+}
+.way-icon { font-size: 1.6rem; margin-bottom: .6rem; }
+.way-card h4 { font-size: .92rem; margin-bottom: .35rem; }
+.way-card p  { font-size: .82rem; color: var(--muted); flex: 1; line-height: 1.55; }
+.way-link {
+  display: inline-block;
+  margin-top: .85rem;
+  font-size: .8rem;
+  font-weight: 700;
+  color: var(--clay);
+  text-decoration: none;
+}
+.way-link:hover { text-decoration: underline; }
+
+/* ── Impact Sidebar ── */
+.impact-sidebar {
+  position: sticky;
+  top: calc(var(--nav-h) + 1.5rem);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.impact-header {
+  background: linear-gradient(135deg, var(--night) 0%, #1a3a5c 100%);
+  border-radius: calc(var(--r)*2);
+  padding: 1.5rem 1.75rem;
+  color: #fff;
+}
+.impact-header h3 { color: #fff; font-size: 1.2rem; margin-bottom: .35rem; }
+.impact-header p  { color: rgba(255,255,255,.7); font-size: .85rem; }
+
+.impact-list {
+  background: #fff;
+  border-radius: calc(var(--r)*2);
+  border: 1px solid rgba(59,42,26,.08);
+  overflow: hidden;
+}
+.impact-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid rgba(59,42,26,.07);
+  transition: background .15s;
+}
+.impact-item:last-child { border-bottom: none; }
+.impact-item:hover { background: var(--sand); }
+.impact-icon-wrap {
+  flex-shrink: 0;
+  width: 42px; height: 42px;
+  background: linear-gradient(135deg, var(--sand), #efe3cf);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+}
+.impact-amount {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 900;
+  color: var(--clay);
+  margin-bottom: .15rem;
+}
+.impact-text p { font-size: .82rem; color: var(--muted); line-height: 1.45; }
+
+.quote-card {
+  background: var(--sand);
+  border-radius: calc(var(--r)*2);
+  padding: 1.5rem 1.75rem;
+  position: relative;
+}
+.quote-mark {
+  font-family: Georgia, serif;
+  font-size: 4rem;
+  color: var(--clay);
+  line-height: .6;
+  margin-bottom: .75rem;
+  opacity: .5;
+}
+.quote-card p { font-size: .88rem; line-height: 1.65; font-style: italic; color: var(--earth); }
+.quote-author { font-size: .78rem; font-weight: 700; color: var(--clay); margin-top: .85rem; }
+
+.contact-nudge {
+  background: #fff;
+  border: 1px solid rgba(59,42,26,.1);
+  border-radius: calc(var(--r)*2);
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.contact-nudge p { font-size: .9rem; font-weight: 600; color: var(--earth); }
+.nudge-btn { font-size: .82rem; padding: .45rem 1.1rem; white-space: nowrap; }
+
+/* ── Bottom CTA ── */
+.cta-section {
+  position: relative;
+  padding: 6rem 0;
+  text-align: center;
+  overflow: hidden;
+}
+.cta-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--night) 0%, #1a4a6b 50%, var(--clay) 100%);
+}
+.cta-inner { position: relative; z-index: 1; }
+
+/* ── Responsive ── */
 @media (max-width: 1024px) {
-  .donate-layout { grid-template-columns: 1fr; }
+  .donate-grid { grid-template-columns: 1fr; }
   .impact-sidebar { position: static; }
-  .ways-grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 600px) {
-  .amount-grid { grid-template-columns: repeat(2, 1fr); }
-  .form-row    { grid-template-columns: 1fr; }
-  .ways-grid   { grid-template-columns: 1fr; }
+  .ways-grid { grid-template-columns: 1fr; }
+  .pobox-top { flex-direction: column; text-align: center; }
+  .address-line { font-size: 1.2rem; }
+  .contact-nudge { flex-direction: column; text-align: center; }
 }
 </style>
-
-<script>
-const amountBtns = document.querySelectorAll<HTMLButtonElement>('.amount-btn');
-const freqBtns   = document.querySelectorAll<HTMLButtonElement>('.freq-btn');
-
-amountBtns.forEach(btn => {
-  btn.addEventListener('click', () => {
-    amountBtns.forEach(b => b.classList.remove('selected'));
-    btn.classList.add('selected');
-  });
-});
-
-freqBtns.forEach(btn => {
-  btn.addEventListener('click', () => {
-    freqBtns.forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-  });
-});
-</script>
