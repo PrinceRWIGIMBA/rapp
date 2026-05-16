@@ -209,20 +209,21 @@ collections:
               - { label: "Subtitle", name: "subtitle", widget: "text" }
               - { label: "Background Image", name: "image", widget: "image" }
 
-          - label: "Partner Tiers"
+          - label: "Programme Partners"
             name: "tiers"
             widget: "list"
             summary: "{{fields.level}}"
+            hint: "Currently one tier: Programme Partners. Add more tiers here if needed."
             fields:
               - { label: "Tier Name", name: "level", widget: "string" }
-              - { label: "Accent Color (CSS var)", name: "color", widget: "string", hint: "e.g. var(--gold)" }
-              - label: "Partners in this tier"
+              - { label: "Accent Color (CSS var)", name: "color", widget: "string", hint: "e.g. var(--teal)" }
+              - label: "Partners"
                 name: "partners"
                 widget: "list"
                 summary: "{{fields.name}}"
                 fields:
                   - { label: "Partner Name", name: "name", widget: "string" }
-                  - { label: "Type (e.g. NGO, Government, Finance)", name: "type", widget: "string" }
+                  - { label: "Type (e.g. NGO, Finance, International)", name: "type", widget: "string" }
                   - { label: "Description", name: "desc", widget: "text" }
 
           - label: "How to Partner Cards"
