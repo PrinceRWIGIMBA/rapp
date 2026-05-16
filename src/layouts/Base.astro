@@ -19,20 +19,27 @@ const { title, description = "Rwandans Allied for Peace and Progress — buildin
 </head>
 <body>
   <slot />
-  <script>
-    // Netlify Identity: redirect to /admin after login
-    if (window.netlifyIdentity) {
-      window.netlifyIdentity.on("init", (user: any) => {
-        if (!user) {
-          window.netlifyIdentity.on("login", () => {
-            document.location.href = "/admin/";
-          });
-        }
-      });
-    }
-  </script>
+  
 </body>
 </html>
 <style is:global>
   @import '../styles/global.css';
 </style>
+
+<script>
+			declare global {
+				interface Window {
+					netlifyIdentity: any;
+				}
+			}
+
+			if (window.netlifyIdentity) {
+			  window.netlifyIdentity.on("init", ((user: any) => {
+				if (!user) {
+				  window.netlifyIdentity.on("login", () => {
+					document.location.href = "/admin/";
+				  });
+				}
+			  }));
+			}
+		  </script>
