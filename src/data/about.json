@@ -9,123 +9,99 @@
     "label": "Our Story",
     "title": "Born from Rwanda's Spirit of Resilience",
     "paragraphs": [
-      "RAPP was founded in 2003 in Kigali as a local non-governmental organization (NGO) and implements projects from different international donors.   RAPP works in urban and rural districts in collaboration with partners composed of Government and National and International NGO’s.  RAPP recognizes the link between HIV prevention and stigma-reduction and discrimination against people who are living with HIV, and taboos related to sexual relations.  RAPP creates awareness among young people about Sexual and Reproductive Health and Rights (SRHR), HIV/AIDS and how to prevent it using theater and other unique forms of message transportation.  ",
-      "Our outreach also benefits people that are infected or affected by HIV and other vulnerable and low income people financially.  RAPP helps to reduce poverty by using our purchasing power to initiate and/or support business and Income Generating Activities (IGA) run by local self-help groups."
+      "RAPP was founded in 2003 in Kigali as a local non-governmental organization (NGO) and implements projects from different international donors. RAPP works in urban and rural districts in collaboration with partners composed of Government and National and International NGO's. RAPP recognizes the link between HIV prevention and stigma-reduction and discrimination against people who are living with HIV, and taboos related to sexual relations. RAPP creates awareness among young people about Sexual and Reproductive Health and Rights (SRHR), HIV/AIDS and how to prevent it using theater and other unique forms of message transportation.",
+      "Our outreach also benefits people that are infected or affected by HIV and other vulnerable and low income people financially. RAPP helps to reduce poverty by using our purchasing power to initiate and/or support business and Income Generating Activities (IGA) run by local self-help groups."
     ],
     "image": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=700&q=80"
   },
   "values": [
-    {
-      "icon": "🕊️",
-      "title": "Peace First",
-      "desc": "We believe dialogue and reconciliation are the foundation of all sustainable progress."
-    },
-    {
-      "icon": "🤲",
-      "title": "Community-Led",
-      "desc": "Every programme is designed with — not for — the communities we serve."
-    },
-    {
-      "icon": "🌍",
-      "title": "Pan-African Spirit",
-      "desc": "We draw on Rwanda's rich heritage while embracing our shared African identity."
-    },
-    {
-      "icon": "📊",
-      "title": "Accountability",
-      "desc": "We hold ourselves to the highest standards of transparency and results-based management."
-    },
-    {
-      "icon": "♻️",
-      "title": "Sustainability",
-      "desc": "We build programmes that communities can own and sustain long after our involvement."
-    },
-    {
-      "icon": "⚖️",
-      "title": "Equity & Inclusion",
-      "desc": "We prioritize the most marginalized — women, youth, and rural communities."
-    }
+    { "icon": "🕊️", "title": "Peace First", "desc": "We believe dialogue and reconciliation are the foundation of all sustainable progress." },
+    { "icon": "🤲", "title": "Community-Led", "desc": "Every programme is designed with — not for — the communities we serve." },
+    { "icon": "🌍", "title": "Pan-African Spirit", "desc": "We draw on Rwanda's rich heritage while embracing our shared African identity." },
+    { "icon": "📊", "title": "Accountability", "desc": "We hold ourselves to the highest standards of transparency and results-based management." },
+    { "icon": "♻️", "title": "Sustainability", "desc": "We build programmes that communities can own and sustain long after our involvement." },
+    { "icon": "⚖️", "title": "Equity & Inclusion", "desc": "We prioritize the most marginalized — women, youth, and rural communities." }
   ],
   "milestones": [
-    {
-      "year": "2014",
-      "event": "RAPP founded in Kigali by a coalition of peacebuilders and development practitioners."
-    },
-    {
-      "year": "2016",
-      "event": "Launched first reconciliation dialogue programme, reaching 20 communities."
-    },
-    {
-      "year": "2018",
-      "event": "Received first international grant from the EU to expand to the Northern Province."
-    },
-    {
-      "year": "2020",
-      "event": "Scaled Youth Leadership Academy to three provinces, training 300+ youth annually."
-    },
-    {
-      "year": "2022",
-      "event": "Celebrated impacting over 40,000 lives and partnering with 25+ organizations."
-    },
-    {
-      "year": "2024",
-      "event": "Launched the Reforestation Rwanda campaign with a goal of 1 million trees by 2027."
-    }
+    { "year": "2014", "event": "RAPP founded in Kigali by a coalition of peacebuilders and development practitioners." },
+    { "year": "2016", "event": "Launched first reconciliation dialogue programme, reaching 20 communities." },
+    { "year": "2018", "event": "Received first international grant from the EU to expand to the Northern Province." },
+    { "year": "2020", "event": "Scaled Youth Leadership Academy to three provinces, training 300+ youth annually." },
+    { "year": "2022", "event": "Celebrated impacting over 40,000 lives and partnering with 25+ organizations." },
+    { "year": "2024", "event": "Launched the Reforestation Rwanda campaign with a goal of 1 million trees by 2027." }
   ],
   "team": [
     {
       "name": "Gedeon Bihonzi",
-      "role": "RAPP’s Executive Director",
-      "bio": "Email: gedeonbihonzi@gmail.com\nPhone: 250-788593174\nBihonzi Gedeon has been the Executive Director of RAPP for two years.  He has experience with various national and international NGOs.  He received a Bachelor's Degree in Social Sciences. ",
-      "photo": "/images/dscf1167.jpg"
+      "role": "Executive Director",
+      "bio": "Bihonzi Gedeon has been the Executive Director of RAPP for two years. He has experience with various national and international NGOs. He received a Bachelor's Degree in Social Sciences.",
+      "photo": "/images/dscf1167.jpg",
+      "phone": "+250 788 593 174",
+      "email": "gedeonbihonzi@gmail.com"
     },
     {
       "name": "Amini Kabano",
       "role": "Manager of Administration and Finance",
-      "bio": "Email: amikabano@yahoo.fr\nAmini has worked with RAPP for one year and hold a Bachelor's Degree in Accounting.",
-      "photo": "/images/dscf1149.jpg"
+      "bio": "Amini has worked with RAPP for one year and holds a Bachelor's Degree in Accounting.",
+      "photo": "/images/dscf1149.jpg",
+      "phone": "",
+      "email": "amikabano@yahoo.fr"
     },
     {
-      "name": " Patrick Nimubona",
-      "role": "RK’s Project Manager of Rwandan Knits",
-      "bio": "Email: p_nimub@yahoo.com\nPatrick has been working with RAPP for two years.  He has a Bachelor's Degree in Management.  He works closely with Rwanda Knits, one of RAPP's community projects.",
-      "photo": "/images/dscf1164.jpg"
+      "name": "Patrick Nimubona",
+      "role": "Project Manager of Rwandan Knits",
+      "bio": "Patrick has been working with RAPP for two years. He has a Bachelor's Degree in Management. He works closely with Rwanda Knits, one of RAPP's community projects.",
+      "photo": "/images/dscf1164.jpg",
+      "phone": "",
+      "email": "p_nimub@yahoo.com"
     },
     {
-      "name": " Francine Kayigemera",
+      "name": "Francine Kayigemera",
       "role": "Accountant",
       "bio": "Francine has been working with RAPP for one year and has a B.A. in Business and Administration.",
-      "photo": "/images/dscf1150.jpg"
+      "photo": "/images/dscf1150.jpg",
+      "phone": "",
+      "email": ""
     },
     {
-      "name": " Sammy Kalisa",
-      "role": "Project Manager at Amaijwi y'ubuzima Project",
-      "bio": "Email: sammy.kalisa@gmail.com\nPhone: 0788429802\nHe has worked with RAPP for two years.",
-      "photo": "/images/dscf1152.jpg"
+      "name": "Sammy Kalisa",
+      "role": "Project Manager – Amaijwi y'ubuzima",
+      "bio": "Sammy has worked with RAPP for two years as Project Manager on the Amaijwi y'ubuzima project.",
+      "photo": "/images/dscf1152.jpg",
+      "phone": "+250 788 429 802",
+      "email": "sammy.kalisa@gmail.com"
     },
     {
       "name": "Enock Rukundo",
       "role": "Expert for Income Generating Activities",
-      "bio": "Email: rukundoj2003@yahoo.fr\nPhone: 0783528589\nEnock has been working with RAPP for two years.  His project is the Voices of Health.  He holds a Bachelor's Degree in Food Science and Technology and has a Post-Graduate Diploma in Enterprise Development.",
-      "photo": "/images/dscf1156.jpg"
+      "bio": "Enock has been working with RAPP for two years on the Voices of Health project. He holds a Bachelor's Degree in Food Science and Technology and a Post-Graduate Diploma in Enterprise Development.",
+      "photo": "/images/dscf1156.jpg",
+      "phone": "+250 783 528 589",
+      "email": "rukundoj2003@yahoo.fr"
     },
     {
       "name": "Philippe Ngobonziza",
       "role": "RAPP/BCSM Lead Trainer",
-      "bio": "Email: ngobozipe@yahoo.fr\nPhone: 0783713289\nPhilippe has been working with RAPP for four years.  He has been training performers in the Behavior Change and Social Market (BCSM).  His project is Theater on HIV. ",
-      "photo": "/images/dscf1168.jpg"
+      "bio": "Philippe has been working with RAPP for four years, training performers in the Behavior Change and Social Market (BCSM) project. His project is Theater on HIV.",
+      "photo": "/images/dscf1168.jpg",
+      "phone": "+250 783 713 289",
+      "email": "ngobozipe@yahoo.fr"
     },
     {
       "name": "Douglas Mubirigi",
       "role": "IT & Logistics Manager",
-      "bio": "Email: douglasmb1@yahoo.fr\nPhone: +250 788683399\nDouglas has worked with RAPP for four years.  He has been working as IT since 2005 and he has a degree in Information Technology.",
-      "photo": "/images/dscf1173.jpg"
+      "bio": "Douglas has worked with RAPP for four years. He has been working in IT since 2005 and holds a degree in Information Technology.",
+      "photo": "/images/dscf1173.jpg",
+      "phone": "+250 788 683 399",
+      "email": "douglasmb1@yahoo.fr"
     },
     {
       "name": "Rose Tuyishime",
       "role": "RAPP/BCSM Head Trainer",
-      "bio": "Email: oh2yih@yahoo.com\nPhone: 0785446149\nRose has worked with RAPP for six years.  She received her Diploma in Biology & Chemistry and works with the Behavior Change and Social Market (BCSM) project with RAPP.",
-      "photo": "/images/100_3097.jpg"
+      "bio": "Rose has worked with RAPP for six years. She received her Diploma in Biology & Chemistry and works with the Behavior Change and Social Market (BCSM) project.",
+      "photo": "/images/100_3097.jpg",
+      "phone": "+250 785 446 149",
+      "email": "oh2yih@yahoo.com"
     }
   ]
 }

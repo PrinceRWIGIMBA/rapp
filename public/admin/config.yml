@@ -147,6 +147,8 @@ collections:
               - { label: "Role / Title", name: "role", widget: "string" }
               - { label: "Bio", name: "bio", widget: "text" }
               - { label: "Photo", name: "photo", widget: "image" }
+              - { label: "Phone", name: "phone", widget: "string", required: false, hint: "e.g. +250 788 000 000" }
+              - { label: "Email", name: "email", widget: "string", required: false, hint: "e.g. name@rapp.org.rw" }
 
   # ─── CONTACT PAGE ────────────────────────────────────────────────
   - name: "contact"
