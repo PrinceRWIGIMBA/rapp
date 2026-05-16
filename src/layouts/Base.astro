@@ -25,21 +25,3 @@ const { title, description = "Rwandans Allied for Peace and Progress — buildin
 <style is:global>
   @import '../styles/global.css';
 </style>
-
-<script>
-			declare global {
-				interface Window {
-					netlifyIdentity: any;
-				}
-			}
-
-			if (window.netlifyIdentity) {
-			  window.netlifyIdentity.on("init", ((user: any) => {
-				if (!user) {
-				  window.netlifyIdentity.on("login", () => {
-					document.location.href = "/admin/";
-				  });
-				}
-			  }));
-			}
-		  </script>

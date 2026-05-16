@@ -11,6 +11,7 @@ const news = (latestNews.slugs ?? [])
   .map((slug: string) => allPostsRaw.find((p: any) => p.slug === slug))
   .filter(Boolean);
 ---
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
 <Base title="Home">
   <Nav />
@@ -399,3 +400,22 @@ const news = (latestNews.slugs ?? [])
   .stats-grid    { grid-template-columns: repeat(2, 1fr); }
 }
 </style>
+
+
+<script>
+			declare global {
+				interface Window {
+					netlifyIdentity: any;
+				}
+			}
+
+			if (window.netlifyIdentity) {
+			  window.netlifyIdentity.on("init", ((user: any) => {
+				if (!user) {
+				  window.netlifyIdentity.on("login", () => {
+					document.location.href = "/admin/";
+				  });
+				}
+			  }));
+			}
+		  </script>
