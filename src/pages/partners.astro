@@ -107,6 +107,7 @@ const typeIconMap: Record<string, string> = {
 <style>
 /* ── Tier header ── */
 .tier-section   { margin-bottom: 4rem; }
+.tier-section:first-child { padding-top: 2rem; }
 .tier-header    { margin-bottom: 2.5rem; }
 .tier-pill {
   display: inline-block;
@@ -115,10 +116,10 @@ const typeIconMap: Record<string, string> = {
   letter-spacing: .08em;
   text-transform: uppercase;
   color: var(--teal);
-  background: color-mix(in srgb, var(--teal) 10%, transparent);
+  background: rgba(29, 158, 117, .1);
   padding: .35rem 1rem;
   border-radius: 2rem;
-  border: 1px solid color-mix(in srgb, var(--teal) 25%, transparent);
+  border: 1px solid rgba(29, 158, 117, .25);
 }
 
 /* ── Partners grid ── */
@@ -157,9 +158,9 @@ const typeIconMap: Record<string, string> = {
   width: 48px;
   height: 48px;
   border-radius: 12px;
-  background: color-mix(in srgb, var(--teal) 10%, transparent);
+  background: var(--sand);
   border: 2px solid var(--teal);
-  outline: 4px solid color-mix(in srgb, var(--teal) 15%, transparent);
+  box-shadow: 0 0 0 4px rgba(29, 158, 117, .15);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -188,7 +189,7 @@ const typeIconMap: Record<string, string> = {
   letter-spacing: .08em;
   text-transform: uppercase;
   color: var(--clay);
-  background: color-mix(in srgb, var(--clay) 10%, transparent);
+  background: rgba(180, 90, 40, .1);
   padding: .2rem .6rem;
   border-radius: 2rem;
   width: fit-content;
