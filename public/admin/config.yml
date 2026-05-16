@@ -150,6 +150,18 @@ collections:
               - { label: "Phone", name: "phone", widget: "string", required: false, hint: "e.g. +250 788 000 000" }
               - { label: "Email", name: "email", widget: "string", required: false, hint: "e.g. name@rapp.org.rw" }
 
+          - label: "Board of Directors"
+            name: "board"
+            widget: "list"
+            summary: "{{fields.name}} – {{fields.role}}"
+            fields:
+              - { label: "Full Name", name: "name", widget: "string" }
+              - { label: "Role (e.g. President, Member)", name: "role", widget: "string" }
+              - { label: "Bio", name: "bio", widget: "text", required: false }
+              - { label: "Photo", name: "photo", widget: "image", required: false }
+              - { label: "Phone", name: "phone", widget: "string", required: false, hint: "e.g. +250 788 000 000" }
+              - { label: "Email", name: "email", widget: "string", required: false, hint: "e.g. name@rapp.org.rw" }
+
   # ─── CONTACT PAGE ────────────────────────────────────────────────
   - name: "contact"
     label: "📞 Contact Page"

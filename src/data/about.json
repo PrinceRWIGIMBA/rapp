@@ -103,5 +103,55 @@
       "phone": "+250 785 446 149",
       "email": "oh2yih@yahoo.com"
     }
+  ],
+  "board": [
+    {
+      "name": "Mutabazi John",
+      "role": "President",
+      "bio": "",
+      "photo": "",
+      "phone": "",
+      "email": ""
+    },
+    {
+      "name": "Niyonishuti Luck",
+      "role": "Member",
+      "bio": "",
+      "photo": "",
+      "phone": "",
+      "email": ""
+    },
+    {
+      "name": "Laura John",
+      "role": "Member",
+      "bio": "",
+      "photo": "",
+      "phone": "",
+      "email": ""
+    },
+    {
+      "name": "Eric Ruhi",
+      "role": "Member",
+      "bio": "",
+      "photo": "",
+      "phone": "",
+      "email": ""
+    },
+    {
+      "name": "Cari Kamana",
+      "role": "Member",
+      "bio": "",
+      "photo": "",
+      "phone": "",
+      "email": ""
+    },
+    {
+      "name": "Jessica Hakees",
+      "role": "Member",
+      "bio": "",
+      "photo": "",
+      "phone": "",
+      "email": ""
+    }
   ]
 }

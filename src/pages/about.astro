@@ -4,7 +4,7 @@ import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import aboutData from '../data/about.json';
 
-const { hero, story, values, milestones, team } = aboutData;
+const { hero, story, values, milestones, team, board } = aboutData;
 ---
 
 <Base title="About Us" description="Learn about RAPP's history, mission, values, and the team driving peace and progress in Rwanda.">
@@ -93,7 +93,6 @@ const { hero, story, values, milestones, team } = aboutData;
               <h3 class="team-name">{m.name}</h3>
               <p class="team-role">{m.role}</p>
               <p class="team-bio">{m.bio}</p>
-
               {(m.phone || m.email) && (
                 <div class="team-contact">
                   {m.phone && (
@@ -139,8 +138,62 @@ const { hero, story, values, milestones, team } = aboutData;
     </div>
   </section>
 
-  <!-- CTA -->
+  <!-- Board of Directors -->
   <section class="section">
+    <div class="container">
+      <div class="section-header" style="text-align:center;">
+        <span class="section-label">Governance</span>
+        <h2>Board of Directors</h2>
+        <div class="divider" style="margin:1rem auto;"></div>
+        <p class="team-subtitle">The governing body providing strategic oversight and accountability for RAPP.</p>
+      </div>
+
+      <div class="board-grid">
+        {board.map((b) => (
+          <div class="board-card">
+            <div class="board-photo-wrap">
+              {b.photo
+                ? <img src={b.photo} alt={b.name} class="board-photo" loading="lazy" />
+                : <div class="board-photo-placeholder">
+                    <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="12" cy="8" r="4"/>
+                      <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+                    </svg>
+                  </div>
+              }
+            </div>
+            <h3 class="board-name">{b.name}</h3>
+            <p class="board-role">{b.role}</p>
+            {b.bio && <p class="board-bio">{b.bio}</p>}
+            {(b.phone || b.email) && (
+              <div class="team-contact">
+                {b.phone && (
+                  <a href={`tel:${b.phone.replace(/\s/g, '')}`} class="team-contact-item">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.77a16 16 0 0 0 6.29 6.29l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+                    </svg>
+                    <span>{b.phone}</span>
+                  </a>
+                )}
+                {b.email && (
+                  <a href={`mailto:${b.email}`} class="team-contact-item">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect width="20" height="16" x="2" y="4" rx="2"/>
+                      <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                    </svg>
+                    <span>{b.email}</span>
+                  </a>
+                )}
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section bg-sand">
     <div class="container" style="max-width:620px;margin:0 auto;text-align:center;">
       <span class="section-label">Join the Movement</span>
       <h2>Be Part of Rwanda's Progress</h2>
@@ -291,7 +344,7 @@ const { hero, story, values, milestones, team } = aboutData;
 }
 .team-bio { font-size: .85rem; line-height: 1.6; margin-bottom: 0; }
 
-/* Contact info */
+/* Shared contact row */
 .team-contact {
   display: flex;
   flex-direction: column;
@@ -315,7 +368,7 @@ const { hero, story, values, milestones, team } = aboutData;
 .team-contact-item:hover { opacity: .7; text-decoration: underline; }
 .team-contact-item svg { flex-shrink: 0; opacity: .65; }
 
-/* Arrows */
+/* Carousel arrows */
 .carousel-btn {
   position: absolute;
   top: calc(50% - 2.5rem);
@@ -369,9 +422,59 @@ const { hero, story, values, milestones, team } = aboutData;
   transition: width .1s linear;
 }
 
+/* ── Board of Directors ── */
+.board-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+.board-card {
+  background: #fff;
+  border: 1px solid rgba(59,42,26,.08);
+  padding: 2rem 1.5rem;
+  border-radius: calc(var(--r)*2);
+  box-shadow: 0 2px 16px rgba(13,43,69,.06);
+  text-align: center;
+  transition: transform .3s, box-shadow .3s;
+}
+.board-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(13,43,69,.12);
+}
+.board-photo-wrap {
+  width: 100px; height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 1.25rem;
+  border: 3px solid var(--sand);
+  box-shadow: 0 4px 16px rgba(13,43,69,.14);
+}
+.board-photo { width: 100%; height: 100%; object-fit: cover; display: block; }
+.board-photo-placeholder {
+  width: 100%; height: 100%;
+  background: rgba(26,107,138,.07);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--clay);
+  opacity: .5;
+}
+.board-name { font-size: 1rem; margin-bottom: .25rem; }
+.board-role {
+  font-size: .75rem;
+  color: var(--clay);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .07em;
+  margin-bottom: .5rem;
+}
+.board-bio { font-size: .84rem; line-height: 1.6; margin-bottom: 0; }
+
 @media (max-width: 1024px) {
   .values-grid { grid-template-columns: repeat(2, 1fr); }
   .team-card   { flex: 0 0 calc(50% - .75rem); }
+  .board-grid  { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 900px) {
   .story-layout { grid-template-columns: 1fr; }
@@ -389,6 +492,7 @@ const { hero, story, values, milestones, team } = aboutData;
 @media (max-width: 600px) {
   .values-grid { grid-template-columns: 1fr; }
   .team-card   { flex: 0 0 100%; }
+  .board-grid  { grid-template-columns: 1fr; }
 }
 </style>
 
@@ -401,7 +505,7 @@ const { hero, story, values, milestones, team } = aboutData;
   const cards   = track.querySelectorAll('.team-card');
   const total   = cards.length;
 
-  let current  = 0;
+  let current   = 0;
   let autoTimer = null;
   const AUTO_MS = 4000;
   const TICK_MS = 50;
@@ -462,7 +566,10 @@ const { hero, story, values, milestones, team } = aboutData;
   wrapper.addEventListener('mouseleave', startAuto);
 
   let touchStartX = 0;
-  track.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; stopAuto(); }, { passive: true });
+  track.addEventListener('touchstart', e => {
+    touchStartX = e.touches[0].clientX;
+    stopAuto();
+  }, { passive: true });
   track.addEventListener('touchend', e => {
     const dx = touchStartX - e.changedTouches[0].clientX;
     if (Math.abs(dx) > 40) goTo(dx > 0 ? current + 1 : current - 1, true);
