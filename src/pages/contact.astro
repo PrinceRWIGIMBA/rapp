@@ -3,8 +3,10 @@ import Base from '../layouts/Base.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import contactData from '../data/contact.json';
+import siteData from '../data/site.json';
 
-const { hero, offices, topics } = contactData;
+const { hero, offices } = contactData;
+const office = offices[0];
 ---
 
 <Base title="Contact Us" description="Get in touch with RAPP — we'd love to hear from you.">
@@ -18,96 +20,157 @@ const { hero, offices, topics } = contactData;
     </div>
   </div>
 
+  <!-- Contact cards -->
   <section class="section">
-    <div class="container contact-layout">
+    <div class="container">
 
-      <!-- Form -->
-      <div class="contact-form-wrap">
-        <h2>Send Us a Message</h2>
+      <div class="contact-intro">
+        <span class="section-label">Get in Touch</span>
+        <h2>We're Here For You</h2>
         <div class="divider"></div>
-
-        <form class="contact-form" id="contact-form">
-          <div class="form-row">
-            <div class="form-field">
-              <label for="fname">First Name *</label>
-              <input type="text" id="fname" required placeholder="Jane" />
-            </div>
-            <div class="form-field">
-              <label for="lname">Last Name *</label>
-              <input type="text" id="lname" required placeholder="Doe" />
-            </div>
-          </div>
-          <div class="form-field">
-            <label for="email">Email Address *</label>
-            <input type="email" id="email" required placeholder="jane@example.com" />
-          </div>
-          <div class="form-field">
-            <label for="org">Organization (optional)</label>
-            <input type="text" id="org" placeholder="Your organization" />
-          </div>
-          <div class="form-field">
-            <label for="topic">Topic *</label>
-            <select id="topic" required>
-              <option value="">Select a topic…</option>
-              {topics.map(t => <option>{t}</option>)}
-            </select>
-          </div>
-          <div class="form-field">
-            <label for="message">Message *</label>
-            <textarea id="message" rows="5" required placeholder="Tell us how we can help…"></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;padding:1rem;">
-            Send Message
-          </button>
-          <div id="form-success" class="success-msg" style="display:none;">
-            ✅ Thank you! We've received your message and will respond within 48 hours.
-          </div>
-        </form>
+        <p>Our team is based in Kigali and ready to answer any questions about our programmes, partnerships, or how you can get involved.</p>
       </div>
 
-      <!-- Info sidebar -->
-      <div class="contact-sidebar">
-        {offices.map(o => (
-          <div class="office-card">
-            <h3>{o.name}</h3>
-            <ul class="office-details">
-              <li><span>📍</span> {o.address}</li>
-              <li><span>📞</span> <a href={`tel:${o.phone.replace(/\s/g,'')}`}>{o.phone}</a></li>
-              <li><span>✉️</span> <a href={`mailto:${o.email}`}>{o.email}</a></li>
-              <li><span>🕒</span> {o.hours}</li>
-            </ul>
-          </div>
-        ))}
+      <div class="contact-grid">
 
-        <div class="social-card">
-          <h3>Follow Us</h3>
-          <div class="social-links">
-            <a href="#" class="social-link">
-              <span>f</span> Facebook
+        <!-- HQ Card -->
+        <div class="contact-card">
+          <div class="card-header">
+            <div class="header-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                <polyline points="9 22 9 12 15 12 15 22"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="header-title">{office.name}</h3>
+              <p class="header-sub">Main office</p>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="detail-row">
+              <svg class="detail-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+              <span>{office.address}</span>
+            </div>
+            <div class="detail-divider"></div>
+            <div class="detail-row">
+              <svg class="detail-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.77a16 16 0 0 0 6.29 6.29l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+              <a href={`tel:${office.phone.replace(/\s/g,'')}`}>{office.phone}</a>
+            </div>
+            <div class="detail-divider"></div>
+            <div class="detail-row">
+              <svg class="detail-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="20" height="16" x="2" y="4" rx="2"/>
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+              </svg>
+              <a href={`mailto:${office.email.trim()}`}>{office.email.trim()}</a>
+            </div>
+            <div class="detail-divider"></div>
+            <div class="detail-row">
+              <svg class="detail-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12 6 12 12 16 14"/>
+              </svg>
+              <span>{office.hours}</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Social Card -->
+        <div class="contact-card">
+          <div class="card-header">
+            <div class="header-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+                <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="header-title">Follow Us</h3>
+              <p class="header-sub">Stay connected with RAPP</p>
+            </div>
+          </div>
+          <div class="card-body social-body">
+            <a href={siteData.social?.facebook ?? '#'} target="_blank" rel="noopener" class="social-link">
+              <div class="social-icon-wrap">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                </svg>
+              </div>
+              <div class="social-text">
+                <span class="social-name">Facebook</span>
+                <span class="social-handle">@RAPPRwanda</span>
+              </div>
+              <svg class="social-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M7 17L17 7M7 7h10v10"/>
+              </svg>
             </a>
-            <a href="#" class="social-link">
-              <span>𝕏</span> Twitter / X
+            <a href={siteData.social?.twitter ?? '#'} target="_blank" rel="noopener" class="social-link">
+              <div class="social-icon-wrap">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4l16 16M4 20L20 4"/>
+                </svg>
+              </div>
+              <div class="social-text">
+                <span class="social-name">Twitter / X</span>
+                <span class="social-handle">@RAPPRwanda</span>
+              </div>
+              <svg class="social-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M7 17L17 7M7 7h10v10"/>
+              </svg>
             </a>
-            <a href="#" class="social-link">
-              <span>in</span> LinkedIn
+            <a href={siteData.social?.linkedin ?? '#'} target="_blank" rel="noopener" class="social-link">
+              <div class="social-icon-wrap">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                  <rect width="4" height="12" x="2" y="9"/>
+                  <circle cx="4" cy="4" r="2"/>
+                </svg>
+              </div>
+              <div class="social-text">
+                <span class="social-name">LinkedIn</span>
+                <span class="social-handle">RAPP Rwanda</span>
+              </div>
+              <svg class="social-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M7 17L17 7M7 7h10v10"/>
+              </svg>
             </a>
-            <a href="#" class="social-link">
-              <span>▶</span> YouTube
+            <a href="#" target="_blank" rel="noopener" class="social-link">
+              <div class="social-icon-wrap">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.54C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/>
+                  <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/>
+                </svg>
+              </div>
+              <div class="social-text">
+                <span class="social-name">YouTube</span>
+                <span class="social-handle">RAPP Rwanda</span>
+              </div>
+              <svg class="social-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M7 17L17 7M7 7h10v10"/>
+              </svg>
             </a>
           </div>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- Map placeholder -->
-  <section class="section bg-sand" style="padding-top:0;">
+  <!-- Map -->
+  <section class="section bg-sand" style="padding-top:0; padding-bottom:5rem;">
     <div class="container">
       <div class="map-placeholder">
         <div class="map-inner">
           <span>🗺️</span>
           <p>Kigali, Rwanda</p>
-          <a href="https://maps.google.com/?q=Kigali,Rwanda" target="_blank" rel="noopener" class="btn btn-outline" style="margin-top:1rem;">Open in Google Maps</a>
+          <a href="https://maps.google.com/?q=Sunrise+House+Kigali+Rwanda" target="_blank" rel="noopener" class="btn btn-outline" style="margin-top:1rem;">Open in Google Maps</a>
         </div>
       </div>
     </div>
@@ -117,130 +180,155 @@ const { hero, offices, topics } = contactData;
 </Base>
 
 <style>
-.contact-layout {
+.contact-intro {
+  max-width: 560px;
+  margin-bottom: 3rem;
+}
+.contact-intro h2 { margin-top: .5rem; }
+.contact-intro p  { margin-top: 1rem; font-size: .95rem; color: var(--muted); }
+
+/* ── Grid ── */
+.contact-grid {
   display: grid;
-  grid-template-columns: 1.4fr 1fr;
-  gap: 4rem;
-  align-items: start;
-}
-.contact-form-wrap {
-  background: #fff;
-  padding: 2.5rem;
-  border-radius: calc(var(--r)*3);
-  box-shadow: 0 4px 32px rgba(59,42,26,.08);
-}
-.contact-form-wrap h2 { font-size: 1.75rem; }
-
-.contact-form { display: flex; flex-direction: column; gap: 0; }
-.form-field { margin-bottom: 1.1rem; }
-.form-field label { display: block; font-size: .85rem; font-weight: 600; margin-bottom: .4rem; color: var(--earth); }
-.form-field input,
-.form-field select,
-.form-field textarea {
-  width: 100%;
-  padding: .72rem 1rem;
-  border: 1.5px solid rgba(59,42,26,.2);
-  border-radius: var(--r);
-  font-family: var(--font-body);
-  font-size: .95rem;
-  background: transparent;
-  outline: none;
-  transition: border-color .2s;
-  resize: vertical;
-}
-.form-field input:focus,
-.form-field select:focus,
-.form-field textarea:focus { border-color: var(--clay); }
-.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-
-.success-msg {
-  margin-top: 1rem;
-  background: rgba(16,185,129,.1);
-  color: #065f46;
-  padding: 1rem 1.25rem;
-  border-radius: var(--r);
-  font-weight: 500;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  align-items: stretch;
+  margin-bottom: 3rem;
 }
 
-.contact-sidebar { display: flex; flex-direction: column; gap: 1.5rem; }
-.office-card {
-  background: #fff;
-  padding: 1.75rem;
-  border-radius: calc(var(--r)*2);
-  box-shadow: 0 2px 12px rgba(59,42,26,.07);
-}
-.office-card h3 { font-size: 1.05rem; margin-bottom: 1rem; }
-.office-details {
-  list-style: none;
+/* ── Shared card ── */
+.contact-card {
+  border-radius: 20px;
+  border: 1px solid rgba(59,42,26,.08);
+  overflow: hidden;
+  box-shadow: 0 2px 16px rgba(13,43,69,.06);
+  transition: box-shadow .3s, transform .3s;
   display: flex;
   flex-direction: column;
-  gap: .65rem;
-  font-size: .88rem;
 }
-.office-details li { display: flex; gap: .6rem; align-items: flex-start; }
-.office-details span { flex-shrink: 0; }
-.office-details a { color: var(--clay); }
-.office-details a:hover { text-decoration: underline; }
+.contact-card:hover {
+  box-shadow: 0 10px 40px rgba(13,43,69,.1);
+  transform: translateY(-3px);
+}
 
-.social-card {
+/* ── Card header ── */
+.card-header {
   background: var(--earth);
-  padding: 1.75rem;
-  border-radius: calc(var(--r)*2);
+  padding: 1.5rem 1.75rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
-.social-card h3 { color: var(--sand); font-size: 1.05rem; margin-bottom: 1rem; }
-.social-links { display: flex; flex-direction: column; gap: .6rem; }
+.header-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background: rgba(255,255,255,.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--sand);
+}
+.header-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--sand);
+  margin: 0;
+}
+.header-sub {
+  font-size: .75rem;
+  color: rgba(245,239,230,.5);
+  margin: .2rem 0 0;
+}
+
+/* ── Card body ── */
+.card-body {
+  background: #fff;
+  padding: 1.5rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: .9rem;
+  flex: 1;
+}
+
+/* ── Detail rows ── */
+.detail-row {
+  display: flex;
+  align-items: flex-start;
+  gap: .75rem;
+  font-size: .88rem;
+  color: var(--muted);
+}
+.detail-row a {
+  color: var(--clay);
+  text-decoration: none;
+}
+.detail-row a:hover { text-decoration: underline; }
+.detail-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  margin-top: 1px;
+  color: var(--teal);
+}
+.detail-divider {
+  height: 1px;
+  background: rgba(59,42,26,.07);
+}
+
+/* ── Social links ── */
+.social-body { gap: .6rem; }
 .social-link {
   display: flex;
   align-items: center;
-  gap: .75rem;
-  color: rgba(245,239,230,.75);
-  font-size: .9rem;
-  transition: color .2s;
+  gap: .85rem;
+  padding: .75rem 1rem;
+  border-radius: 12px;
+  border: 1px solid rgba(59,42,26,.08);
+  text-decoration: none;
+  transition: border-color .2s, background .2s;
 }
-.social-link span {
-  width: 32px; height: 32px;
-  border-radius: 50%;
-  border: 1px solid rgba(245,239,230,.2);
+.social-link:hover {
+  border-color: rgba(59,42,26,.18);
+  background: rgba(59,42,26,.03);
+}
+.social-icon-wrap {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: rgba(29,158,117,.1);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: .85rem;
-  font-weight: 700;
-  color: rgba(245,239,230,.7);
+  flex-shrink: 0;
+  color: var(--teal);
 }
-.social-link:hover { color: var(--gold); }
-.social-link:hover span { border-color: var(--gold); color: var(--gold); }
+.social-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+.social-name   { font-size: .88rem; font-weight: 600; color: var(--night); }
+.social-handle { font-size: .75rem; color: var(--muted); }
+.social-arrow  { color: var(--muted); flex-shrink: 0; }
 
+/* ── Map ── */
 .map-placeholder {
   height: 320px;
   background: linear-gradient(135deg, var(--earth) 0%, #2d1f0f 100%);
-  border-radius: calc(var(--r)*3);
+  border-radius: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
-  position: relative;
 }
-.map-inner {
-  text-align: center;
-  z-index: 1;
-}
+.map-inner { text-align: center; }
 .map-inner span { font-size: 4rem; display: block; margin-bottom: .5rem; }
 .map-inner p { color: var(--sand); font-size: 1.2rem; font-family: var(--font-display); font-weight: 700; }
 
-@media (max-width: 900px) {
-  .contact-layout { grid-template-columns: 1fr; }
-  .form-row { grid-template-columns: 1fr; }
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .contact-grid { grid-template-columns: 1fr; }
 }
 </style>
-
-<script>
-document.getElementById('contact-form')?.addEventListener('submit', (e) => {
-  e.preventDefault();
-  document.getElementById('form-success')!.style.display = 'block';
-  (e.target as HTMLFormElement).reset();
-  setTimeout(() => {
-    document.getElementById('form-success')!.style.display = 'none';
-  }, 6000);
-});
-</script>
