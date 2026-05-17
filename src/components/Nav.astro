@@ -33,7 +33,6 @@ const currentPath = Astro.url.pathname;
           class:list={['nav-link', { active: currentPath === l.href || (l.href !== '/' && currentPath.startsWith(l.href)) }]}
         >{l.label}</a>
       ))}
-      <a href="/donate" class="btn btn-primary nav-donate">Donate</a>
     </nav>
 
     <button class="burger" id="burger" aria-label="Toggle menu">
@@ -119,8 +118,6 @@ const currentPath = Astro.url.pathname;
   background: var(--clay);
   border-radius: 2px;
 }
-.nav-donate { margin-left: .5rem; padding: .55rem 1.25rem; font-size: .88rem; }
-
 .burger {
   display: none;
   flex-direction: column;
